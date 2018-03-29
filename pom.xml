@@ -52,7 +52,7 @@
 		</dependency> -->
 		<!-- Tomcat embedded container-->
 
-		<!-- JSTL tag lib
+		<!-- JSTL tag lib -->
 		<dependency>
 			<groupId>javax.servlet.jsp.jstl</groupId>
 			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
@@ -62,25 +62,19 @@
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
-		</dependency> -->
-		<!-- Tomcat for JSP rendering -->
+		</dependency>
+		<!-- Tomcat for JSP rendering
 		 <dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
-		</dependency>
-		<!--JSTL for JSP -->
+		</dependency>-->
+		<!--JSTL for JSP-->
 		<dependency>
 			<groupId>org.eclipse.jdt.core.compiler</groupId>
 			<artifactId>ecj</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
