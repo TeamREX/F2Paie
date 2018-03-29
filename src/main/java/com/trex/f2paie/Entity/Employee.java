@@ -13,7 +13,7 @@ public class Employee {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY )
-        private int id;
+        private Integer id;
 
     @Column(name = "nom")
         private String nom;
@@ -31,16 +31,16 @@ public class Employee {
         private String situation;
 
     @Column(name = "n_enfants")
-        private int nEnfants ;
+        private Integer nEnfants ;
 
     @Column(name = "poste")
         private String poste  ;
 
     @Column(name = "r_admin")
-        private int r_admin ;
+        private Integer r_admin ;
 
     @Column(name = "grade")
-        private int grade ;
+        private Integer grade ;
 
     @Column(name = "cnss")
         private String cnss ;

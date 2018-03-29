@@ -15,23 +15,23 @@ public class Fiche_P {
     @GeneratedValue
         private Integer id;
     @Column(name = "id_ovr")
-        private int idOvr;
+        private Integer idOvr;
     @Column(name = "month")
-        private int month;
+        private Integer month;
     @Column(name = "year")
-        private int year;
+        private Integer year;
     @Column(name = "name_ovr")
         private String nameOvr;
     @Column(name = "sal_base")
         private String salBase;
     @Column(name = "jr_trv")
-        private int jrTrv;
+        private Integer jrTrv;
     @Column(name = "jr_fer")
-        private int jrFer;
+        private Integer jrFer;
     @Column(name = "pr_heure")
         private String prHeure;
     @Column(name = "nbr_jeure")
-        private int nbrHeure;
+        private Integer nbrHeure;
     @Column(name = "accompte")
         private String accompte;
     @Column(name = "pr_trans")
