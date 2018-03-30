@@ -12,12 +12,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @SpringBootApplication
-public class F2paieApplication  extends SpringBootServletInitializer {
-
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(F2paieApplication.class);
-	}
+public class F2paieApplication  {
 
 	public static void main(String[] args) {
 		SpringApplication.run(F2paieApplication.class, args);
