@@ -10,4 +10,9 @@ public class MainController {
     public String index(){
         return"index";
     }
+
+    @RequestMapping("/user/add")
+    public String ajout_user(){
+        return"employee_add";
+    }
 }
