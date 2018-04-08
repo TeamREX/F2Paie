@@ -14,10 +14,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="/template/dist/img/avatar5.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>Adel Ben Taleb</p>
                 <!-- Status -->
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -48,7 +48,7 @@
               </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="/index">Link in level 2</a></li>
                     <li><a href="#">Link in level 2</a></li>
                 </ul>
             </li>

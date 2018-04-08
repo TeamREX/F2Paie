@@ -5,7 +5,7 @@
     <!-- Logo -->
     <a href="/index" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>F</b>2Paie</span>
+        <span class="logo-mini"><b>F</b>2P</span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>F </b>2Paie</span>
     </a>
