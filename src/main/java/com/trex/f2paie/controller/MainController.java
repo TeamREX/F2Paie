@@ -11,8 +11,4 @@ public class MainController {
         return"index";
     }
 
-    @RequestMapping("/user/add")
-    public String ajout_user(){
-        return"employee_add";
-    }
 }

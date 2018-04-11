@@ -5,12 +5,10 @@
   Time: 14:30
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+<%@tag description="Simple Wrapper Tag" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
     <%--
   Created by IntelliJ IDEA.
@@ -89,10 +87,10 @@
 
 
     <!-- Main Header -->
-    <jsp:include page="header.jsp" />
+    <jsp:include page="../views/layouts/header.jsp" />
 
     <!-- Left side column. contains the logo and sidebar -->
-    <jsp:include page="left_side_bar.jsp" />
+    <jsp:include page="../views/layouts/left_side_bar.jsp" />
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -115,7 +113,7 @@
               | Your Page Content Here |
               -------------------------->
 
-            <jsp:include page="../${partial}" />
+            <jsp:doBody/>
 
         </section>
         <!-- /.content -->
@@ -123,7 +121,7 @@
     <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
-    <jsp:include page="footer.jsp" />
+    <jsp:include page="../views/layouts/footer.jsp" />
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

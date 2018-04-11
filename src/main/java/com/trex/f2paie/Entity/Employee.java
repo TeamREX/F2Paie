@@ -61,30 +61,30 @@ public class Employee {
             this.poste = poste;
         }
 
-        public int getR_admin() {
+        public Integer getR_admin() {
             return r_admin;
         }
 
-        public void setR_admin(int r_admin) {
+        public void setR_admin(Integer r_admin) {
             this.r_admin = r_admin;
         }
 
-        public int getGrade() {
+        public Integer getGrade() {
             return grade;
         }
 
-        public void setGrade(int grade) {
+        public void setGrade(Integer grade) {
             this.grade = grade;
         }
 
         public Employee() {
         }
 
-        public Employee(int id) {
+        public Employee(Integer id) {
             this.id = id;
         }
 
-    public Employee(int id, String nom, String prenom, String cin, String dateNaiss, String situation, int nEnfants, String poste, int r_admin, int grade, String cnss) {
+    public Employee(Integer id, String nom, String prenom, String cin, String dateNaiss, String situation, Integer nEnfants, String poste, Integer r_admin, Integer grade, String cnss) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -98,11 +98,11 @@ public class Employee {
         this.cnss = cnss;
     }
 
-    public int getId() {
+    public Integer getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(Integer id) {
             this.id = id;
         }
 
@@ -146,11 +146,11 @@ public class Employee {
             this.situation = situation;
         }
 
-        public int getNEnfants() {
+        public Integer getNEnfants() {
             return nEnfants;
         }
 
-        public void setNEnfants(int nEnfants) {
+        public void setNEnfants(Integer nEnfants) {
             this.nEnfants = nEnfants;
         }
 
