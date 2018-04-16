@@ -47,7 +47,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="/employee/add">Ajout Employé</a></li>
-                    <li><a href="#">Liste Employés</a></li>
+                    <li><a href="/employee/list">Liste Employés</a></li>
                 </ul>
             </li>
         </ul>
