@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
+import java.util.*;
 
 @Controller
 @RequestMapping("/employee")
@@ -28,6 +28,11 @@ public class EmployeeController {
 
     @RequestMapping("/list")
     public String list_employe( ModelMap model){
+        List<String> list1 = new ArrayList<String>();
+        List<String> list2 = new ArrayList<String>();
+        Collections.copy(list1, list2);
+
+
 
         ArrayList<Employee> employees = (ArrayList<Employee>) employeeService.getAllEmployees();
 
