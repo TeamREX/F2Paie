@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,6 +21,7 @@ public class EmployeeController {
 
     @Autowired
     EmployeeService employeeService;
+// /***Employee and type post -> Call to service ,other wise -> show page
 
     @RequestMapping("/add")
     public ModelAndView ajout_employe(){
@@ -57,6 +59,17 @@ public class EmployeeController {
 
 
         return "employee_list";
+    }
+
+    @RequestMapping("/show/{id}")
+    public String list_employee( @PathVariable int id, ModelMap model){
+
+        Employee employee =  employeeService.getEmployee(id);
+
+        System.out.println("emp : "+employee);
+
+        model.addAttribute("employee", employee);
+        return"employee_show";
     }
 
 }

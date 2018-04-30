@@ -39,8 +39,8 @@
                     <td>${emp.cnss}</td>
                     <td>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default"><i class="fa fa-eye"></i></button>
-                            <button type="button" class="btn btn-danger"><i class="fa fa-remove"></i></button>
+                            <a href="/employee/show/${emp.id}"><button type="button" class="btn btn-default"><i class="fa fa-eye"></i></button></a>
+                            <a href=""><button type="button" class="btn btn-danger"><i class="fa fa-remove"></i></button></a>
                         </div>
                     </td>
                 </tr>
