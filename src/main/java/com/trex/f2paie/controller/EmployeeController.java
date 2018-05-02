@@ -51,14 +51,8 @@ public class EmployeeController {
             return "error";
         }
         employeeService.addEmployee(employee);
-        ArrayList<Employee> employees = (ArrayList<Employee>) employeeService.getAllEmployees();
 
-        System.out.println("emp : "+employees+" number : "+employees.size());
-
-        model.addAttribute("employees", employees);
-
-
-        return "employee_list";
+        return "redirect:/employee/list";
     }
 
     @RequestMapping("/show/{id}")
@@ -70,6 +64,28 @@ public class EmployeeController {
 
         model.addAttribute("employee", employee);
         return"employee_show";
+    }
+
+    @RequestMapping(value = "/editEmployee", method = RequestMethod.POST)
+    public String edit(@Valid @ModelAttribute("employee")Employee employee,
+                         BindingResult result, ModelMap model){
+        if (result.hasErrors()) {
+            return "error";
+        }
+        if(employee.getR_admin()== null)
+            employee.setR_admin(0);
+
+        employeeService.editEmployee(employee);
+
+        return "redirect:/employee/list";
+    }
+
+    @RequestMapping(value = "/removeEmployee/{id}", method = RequestMethod.GET)
+    public String remove(@PathVariable int id, ModelMap model){
+
+        employeeService.removeEmployee(id);
+
+        return "redirect:/employee/list";
     }
 
 }

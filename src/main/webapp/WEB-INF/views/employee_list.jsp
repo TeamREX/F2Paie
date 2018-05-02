@@ -13,7 +13,7 @@
 
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Liste des Employés</h3>
+            <i class="fa fa-group"></i> <span><h3 class="box-title">Liste des Employés</h3></span>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -39,8 +39,8 @@
                     <td>${emp.cnss}</td>
                     <td>
                         <div class="btn-group">
-                            <a href="/employee/show/${emp.id}"><button type="button" class="btn btn-default"><i class="fa fa-eye"></i></button></a>
-                            <a href=""><button type="button" class="btn btn-danger"><i class="fa fa-remove"></i></button></a>
+                            <button type="button" class="btn btn-default" onclick="location.href='/employee/show/${emp.id}';"><i class="fa fa-eye"></i></button>
+                            <button type="button" class="btn btn-danger" onclick="editID(${emp.id},'${emp.prenom} ${emp.nom}')" data-toggle="modal" data-target="#modal-default"><i class="fa fa-remove"></i></button>
                         </div>
                     </td>
                 </tr>
@@ -51,12 +51,40 @@
         </div>
     </div>
 
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Supprimer Employé</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="modal_txt">Êtes-vous sûr de vouloir supprimer l'employé </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Annuler</button>
+                    <a id="delete_btn" href="#"><button type="button" class="btn btn-danger">Supprimer</button></a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
     <!-- FastClick -->
     <script src="/template/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- DataTables -->
     <script src="/template/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="/template/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script>
+        function editID(id,name)
+        {
+            document.getElementById("delete_btn").href="/employee/removeEmployee/"+id;
+            document.getElementById("modal_txt").innerHTML ="Êtes-vous sûr de vouloir supprimer l'employé   <b>"+name+"</b>";
+        }
+
         $(function () {
             $('#employees').DataTable()
             $('#example2').DataTable({

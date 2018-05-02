@@ -17,7 +17,7 @@
 
 <div class="box box-primary">
     <div class="box-header with-border">
-        <h3 class="box-title">Ajout d'un employeur</h3>
+        <i class="fa fa-user-plus"></i> <span><h3 class="box-title">Ajout d'un employeur</h3></span>
     </div>
     <!-- /.box-header -->
 
@@ -88,7 +88,7 @@
             </div>
     </div>
     <div class="box-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-lg btn-success pull-right">Submit</button>
     </div>
 </form:form>
 

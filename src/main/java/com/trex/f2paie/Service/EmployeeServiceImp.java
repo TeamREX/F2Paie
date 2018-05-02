@@ -24,12 +24,14 @@ public class EmployeeServiceImp implements EmployeeService {
 
     @Override
     public int editEmployee(Employee employee) {
-        return 0;
+        if ( employeeRepository.save(employee) != null )
+            return 1;
+        else
+            return 0;
     }
 
     @Override
     public Employee getEmployee(Integer empID) {
-
         return employeeRepository.findOne(empID);
     }
 
@@ -40,6 +42,11 @@ public class EmployeeServiceImp implements EmployeeService {
         return employees;
     }
 
+    @Override
+    public int removeEmployee(Integer empID) {
+        employeeRepository.delete(empID);
+            return 1;
+    }
 
 
 }

@@ -10,5 +10,6 @@ public interface EmployeeService {
     int editEmployee(Employee employee);
     Employee getEmployee(Integer empID);
     List<Employee> getAllEmployees();
+    int removeEmployee(Integer empID);
 
 }
