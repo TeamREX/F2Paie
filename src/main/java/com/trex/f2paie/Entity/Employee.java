@@ -45,6 +45,30 @@ public class Employee {
     @Column(name = "cnss")
         private String cnss ;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
+        private Company company;
+
+
+    public Employee(Integer id) {
+        this.id = id;
+    }
+
+    public Employee(Integer id, String nom, String prenom, String cin, String dateNaiss, String situation, Integer nEnfants, String poste, Integer r_admin, Integer grade, String cnss) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.cin = cin;
+        this.dateNaiss = dateNaiss;
+        this.situation = situation;
+        this.nEnfants = nEnfants;
+        this.poste = poste;
+        this.r_admin = r_admin;
+        this.grade = grade;
+        this.cnss = cnss;
+    }
+
+
         public String getCnss() {
             return cnss;
         }
@@ -80,25 +104,7 @@ public class Employee {
         public Employee() {
         }
 
-        public Employee(Integer id) {
-            this.id = id;
-        }
-
-    public Employee(Integer id, String nom, String prenom, String cin, String dateNaiss, String situation, Integer nEnfants, String poste, Integer r_admin, Integer grade, String cnss) {
-        this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.cin = cin;
-        this.dateNaiss = dateNaiss;
-        this.situation = situation;
-        this.nEnfants = nEnfants;
-        this.poste = poste;
-        this.r_admin = r_admin;
-        this.grade = grade;
-        this.cnss = cnss;
-    }
-
-    public Integer getId() {
+        public Integer getId() {
             return id;
         }
 
@@ -154,11 +160,15 @@ public class Employee {
             this.nEnfants = nEnfants;
         }
 
+    public Company getCompany() {
+        return company;
+    }
 
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
-
-
-        @Override
+    @Override
         public String toString() {
             return "Employee[ id=" + id + " ]";
         }

@@ -50,6 +50,17 @@
                     <li><a href="/employee/list">Liste Employés</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-building"></i> <span>Societés</span>
+                    <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/company/add">Ajout Societé</a></li>
+                    <li><a href="/company/list">Liste Societés</a></li>
+                </ul>
+            </li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>
