@@ -13,7 +13,7 @@
 
     <div class="box">
         <div class="box-header">
-            <i class="fa fa-group"></i> <span><h3 class="box-title">Liste des SocietÃ©s</h3></span>
+            <i class="fa fa-group"></i> <span><h3 class="box-title">Liste des Societés</h3></span>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -49,10 +49,10 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Supprimer SocietÃ©</h4>
+                    <h4 class="modal-title">Supprimer Societé</h4>
                 </div>
                 <div class="modal-body">
-                    <p id="modal_txt">ÃŠtes-vous sÃ»r de vouloir supprimer la SocietÃ© </p>
+                    <p id="modal_txt">Êtes-vous sûr de vouloir supprimer la Societé </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Annuler</button>
@@ -74,7 +74,7 @@
         function editID(id,name)
         {
             document.getElementById("delete_btn").href="/company/removeCompany/"+id;
-            document.getElementById("modal_txt").innerHTML ="ÃŠtes-vous sÃ»r de vouloir supprimer la SocietÃ©   <b>"+name+"</b>";
+            document.getElementById("modal_txt").innerHTML ="Êtes-vous sûr de vouloir supprimer la Societé   <b>"+name+"</b>";
         }
 
         $(function () {

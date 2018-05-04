@@ -7,6 +7,7 @@
 --%>
 <!-- bootstrap datepicker -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- iCheck for checkboxes and radio inputs -->
 <link rel="stylesheet" href="/template/plugins/iCheck/all.css">
 <!-- Select2 -->
@@ -23,6 +24,15 @@
 
 <form:form role="form" method="POST" action="/employee/addEmployee" modelAttribute="employee">
     <div class="box-body">
+        <!-- select input -->
+        <div class="form-group">
+            <form:label path="poste">Société</form:label><br>
+            <form:select path="company" class="form-control select2">
+                <c:forEach var="cmp" items="${companies}">
+                <form:option value="${cmp}" label="${cmp.nom}"/>
+                </c:forEach>
+            </form:select>
+        </div>
             <!-- text input -->
             <div class="form-group">
                 <form:label path="prenom">Prenom</form:label>
@@ -42,6 +52,7 @@
                     </div>
                     <form:input path="dateNaiss" type="text" class="form-control pull-right" id="datepicker"/>
                 </div>
+            </div>
             <!-- text input -->
             <div class="form-group">
                 <form:label path="cin">CIN</form:label>
@@ -60,7 +71,7 @@
                 <form:label path="nEnfants">Nbr Enfants</form:label>
                 <form:input path="nEnfants" type="number" value="0" min="0" max="20" class="form-control" placeholder="Enter ..."/>
             </div>
-                <!-- text select -->
+                <!-- select input -->
                 <div class="form-group">
                     <form:label path="poste">Poste</form:label><br>
                     <form:select path="poste" class="form-control select2">
@@ -84,11 +95,10 @@
                 <form:input path="cnss" type="text" class="form-control" placeholder="Enter ..."/>
             </div>
 
-                <!-- /.input group -->
-            </div>
+
     </div>
     <div class="box-footer">
-        <button type="submit" class="btn btn-lg btn-success pull-right">Submit</button>
+        <button type="submit" class="btn btn-lg btn-success pull-right">Ajouter</button>
     </div>
 </form:form>
 

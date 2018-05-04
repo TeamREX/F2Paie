@@ -22,6 +22,7 @@
                 <tr>
                     <th>Prenom</th>
                     <th>Nom</th>
+                    <th>Société</th>
                     <th>Poste</th>
                     <th>Grade</th>
                     <th>CNSS</th>
@@ -34,6 +35,7 @@
                 <tr>
                     <td>${emp.prenom}</td>
                     <td>${emp.nom}</td>
+                    <td>${emp.company.nom}</td>
                     <td>${emp.poste}</td>
                     <td>${emp.grade}</td>
                     <td>${emp.cnss}</td>

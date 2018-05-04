@@ -44,6 +44,8 @@ public class Employee {
 
     @Column(name = "cnss")
         private String cnss ;
+    @Column(name = "salaire")
+    private String salaire ;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
@@ -152,13 +154,21 @@ public class Employee {
             this.situation = situation;
         }
 
-        public Integer getNEnfants() {
-            return nEnfants;
-        }
+    public Integer getnEnfants() {
+        return nEnfants;
+    }
 
-        public void setNEnfants(Integer nEnfants) {
-            this.nEnfants = nEnfants;
-        }
+    public void setnEnfants(Integer nEnfants) {
+        this.nEnfants = nEnfants;
+    }
+
+    public String getSalaire() {
+        return salaire;
+    }
+
+    public void setSalaire(String salaire) {
+        this.salaire = salaire;
+    }
 
     public Company getCompany() {
         return company;

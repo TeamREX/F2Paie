@@ -23,7 +23,7 @@ public class CompanyServiceImp implements CompanyService {
     }
 
     @Override
-    public int editCompanyEmployee(Company company) {
+    public int editCompany(Company company) {
         if ( companyRepository.save(company) != null )
             return 1;
         else

@@ -2,6 +2,9 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company_add.jsp" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company_list.jsp" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company_show.jsp" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/employee_add.jsp" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/employee_list.jsp" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/employee_show.jsp" charset="ISO-8859-1" />

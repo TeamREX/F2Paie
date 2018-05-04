@@ -7,6 +7,7 @@
 --%>
 <!-- bootstrap datepicker -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- iCheck for checkboxes and radio inputs -->
 <link rel="stylesheet" href="/template/plugins/iCheck/all.css">
 <!-- Select2 -->
@@ -67,6 +68,16 @@
                         <form:form role="form" method="POST" action="/employee/editEmployee" modelAttribute="employee">
                             <form:hidden path="id"/>
                             <div class="box-body">
+
+                                <!-- select input -->
+                                <div class="form-group">
+                                    <form:label path="poste">Société</form:label><br>
+                                    <form:select path="company" class="form-control select2">
+                                        <c:forEach var="cmp" items="${companies}">
+                                            <form:option value="${cmp}" label="${cmp.nom}" selected="${employee.company.nom == cmp.nom ? 'selected' : ''}" />
+                                        </c:forEach>
+                                    </form:select>
+                                </div>
                                 <!-- text input -->
                                 <div class="form-group">
                                     <form:label path="prenom">Prenom</form:label>
@@ -132,7 +143,7 @@
                                 </div>
                             </div>
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-lg btn-success pull-right">Submit</button>
+                                <button type="submit" class="btn btn-lg btn-success pull-right">Appliquer</button>
                             </div>
                         </form:form>
 

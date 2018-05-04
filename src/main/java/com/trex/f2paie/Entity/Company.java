@@ -17,6 +17,24 @@ public class Company {
     @Column(name = "nom")
     private String nom;
 
+    @Column(name = "mf")
+    private String mf;
+
+    @Column(name = "type")
+    private String type;
+
+    @Column(name = "chiffre_affaire")
+    private String chiffre_affaire;
+
+    @Column(name = "adresse")
+    private String adresse;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "date")
+    private String date;
+
     public Company() {
     }
 
@@ -39,6 +57,56 @@ public class Company {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getMf() {
+        return mf;
+    }
+
+    public void setMf(String mf) {
+        this.mf = mf;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getChiffre_affaire() {
+        return chiffre_affaire;
+    }
+
+    public void setChiffre_affaire(String chiffre_affaire) {
+        this.chiffre_affaire = chiffre_affaire;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+
+
     }
 
     @Override

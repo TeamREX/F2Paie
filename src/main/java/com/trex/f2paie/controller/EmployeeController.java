@@ -1,6 +1,7 @@
 package com.trex.f2paie.controller;
 
 import com.trex.f2paie.Entity.Employee;
+import com.trex.f2paie.Service.CompanyService;
 import com.trex.f2paie.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,11 +22,15 @@ public class EmployeeController {
 
     @Autowired
     EmployeeService employeeService;
+    @Autowired
+    CompanyService companyService;
 // /***Employee and type post -> Call to service ,other wise -> show page
 
     @RequestMapping("/add")
     public ModelAndView ajout_employe(){
-        return new ModelAndView("employee_add", "employee", new Employee());
+        ModelAndView modelAndView = new ModelAndView("employee_add", "employee", new Employee());
+        modelAndView.addObject("companies",companyService.getAllCompanies());
+        return modelAndView;
     }
 
     @RequestMapping("/list")
@@ -33,8 +38,6 @@ public class EmployeeController {
         List<String> list1 = new ArrayList<String>();
         List<String> list2 = new ArrayList<String>();
         Collections.copy(list1, list2);
-
-
 
         ArrayList<Employee> employees = (ArrayList<Employee>) employeeService.getAllEmployees();
 
@@ -50,6 +53,9 @@ public class EmployeeController {
         if (result.hasErrors()) {
             return "error";
         }
+        if(employee.getR_admin()== null)
+            employee.setR_admin(0);
+
         employeeService.addEmployee(employee);
 
         return "redirect:/employee/list";
@@ -63,6 +69,7 @@ public class EmployeeController {
         System.out.println("emp : "+employee);
 
         model.addAttribute("employee", employee);
+        model.addAttribute("companies",companyService.getAllCompanies());
         return"employee_show";
     }
 

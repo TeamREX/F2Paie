@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -40,6 +41,49 @@ public class CompanyController {
 
         model.addAttribute("companies", companies);
         return"company_list";
+    }
+
+
+    @RequestMapping(value = "/addCompany", method = RequestMethod.POST)
+    public String submit(@Valid @ModelAttribute("company")Company company,
+                         BindingResult result, ModelMap model){
+        if (result.hasErrors()) {
+            return "error";
+        }
+        companyService.addCompany(company);
+
+        return "redirect:/company/list";
+    }
+
+    @RequestMapping("/show/{id}")
+    public String list_company(@PathVariable int id, ModelMap model){
+
+        Company company =  companyService.getCompany(id);
+
+        System.out.println("cmp : "+company);
+
+        model.addAttribute("company", company);
+        return"company_show";
+    }
+
+    @RequestMapping(value = "/editCompany", method = RequestMethod.POST)
+    public String edit(@Valid @ModelAttribute("company")Company company,
+                       BindingResult result, ModelMap model){
+        if (result.hasErrors()) {
+            return "error";
+        }
+
+        companyService.editCompany(company);
+
+        return "redirect:/company/list";
+    }
+
+    @RequestMapping(value = "/removeCompany/{id}", method = RequestMethod.GET)
+    public String remove(@PathVariable int id, ModelMap model){
+
+        companyService.removeCompany(id);
+
+        return "redirect:/company/list";
     }
 
 
