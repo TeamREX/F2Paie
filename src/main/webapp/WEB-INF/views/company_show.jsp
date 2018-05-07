@@ -5,6 +5,7 @@
   Time: 11:46
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-15" pageEncoding="ISO-8859-15"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- iCheck for checkboxes and radio inputs -->
@@ -37,7 +38,7 @@
     <div class="row">
     <div class="col-sm-4 border-right">
     <div class="description-block">
-    <h5 class="description-header"></h5>
+    <h5 class="description-header">${company.chiffre_affaire}</h5>
     <span class="description-text">Chiffre d'affaire</span>
     </div>
     <!-- /.description-block -->
@@ -45,7 +46,7 @@
     <!-- /.col -->
     <div class="col-sm-4 border-right">
     <div class="description-block">
-    <h5 class="description-header"></h5>
+    <h5 class="description-header">${company.type}</h5>
     <span class="description-text">Type</span>
     </div>
     <!-- /.description-block -->
@@ -53,7 +54,7 @@
     <!-- /.col -->
     <div class="col-sm-4">
     <div class="description-block">
-    <h5 class="description-header"></h5>
+    <h5 class="description-header">${company.mf}</h5>
     <span class="description-text">Matricule Fiscal</span>
     </div>
     <!-- /.description-block -->

@@ -11,5 +11,7 @@ public interface EmployeeService {
     Employee getEmployee(Integer empID);
     List<Employee> getAllEmployees();
     int removeEmployee(Integer empID);
+    long countEmployee();
+    List find_salaire_from_xls (int poste , int r_admin , int grade);
 
 }

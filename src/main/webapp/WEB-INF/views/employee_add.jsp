@@ -5,6 +5,8 @@
   Time: 17:48
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-15" pageEncoding="ISO-8859-15"%>
+
 <!-- bootstrap datepicker -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -81,14 +83,20 @@
                 </div>
             <!-- text input -->
             <div class="form-group">
-                <form:label path="r_admin">r_admin</form:label>
-                <form:checkbox class="flat-red" path="r_admin" value="1" />
-            </div>
-            <!-- text input -->
-            <div class="form-group">
                 <form:label path="grade">Grade</form:label>
                 <form:input path="grade" type="number" class="form-control" placeholder="Enter ..."/>
             </div>
+            <!-- text input -->
+            <div class="form-group">
+                <form:label path="salaire">Salaire</form:label>
+                <form:input path="salaire" type="number" class="form-control" placeholder="Enter ..."/>
+            </div>
+            <!-- text input -->
+            <div class="form-group">
+                <form:label path="r_admin">r_admin</form:label>
+                <form:checkbox class="flat-red" path="r_admin" value="1" />
+            </div>
+
             <!-- text input -->
             <div class="form-group">
                 <form:label path="cnss">CNSS</form:label>

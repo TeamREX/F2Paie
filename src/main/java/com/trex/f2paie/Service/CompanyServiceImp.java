@@ -47,4 +47,9 @@ public class CompanyServiceImp implements CompanyService {
         companyRepository.delete(cmpID);
         return 1;
     }
+
+    @Override
+    public long countCompany() {
+        return companyRepository.count();
+    }
 }

@@ -5,6 +5,8 @@
   Time: 18:05
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-15" pageEncoding="ISO-8859-15"%>
+
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- DataTables -->
@@ -21,6 +23,7 @@
                 <thead>
                 <tr>
                     <th>Nom</th>
+                    <th>Matricule Fiscal</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -29,6 +32,7 @@
                     <c:forEach var="cmp" items="${companies}">
                         <tr>
                             <td>${cmp.nom}</td>
+                            <td>${cmp.mf}</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default" onclick="location.href='/company/show/${cmp.id}';"><i class="fa fa-eye"></i></button>

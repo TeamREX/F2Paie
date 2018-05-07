@@ -10,5 +10,6 @@ public interface CompanyService {
     Company getCompany(Integer cmpID);
     List<Company> getAllCompanies();
     int removeCompany(Integer cmpID);
+    long countCompany();
 
 }

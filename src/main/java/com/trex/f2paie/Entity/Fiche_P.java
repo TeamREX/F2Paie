@@ -15,45 +15,45 @@ public class Fiche_P {
     @GeneratedValue
         private Integer id;
     @Column(name = "id_ovr")
-        private Integer idOvr;
+        private Integer id_ovr;
     @Column(name = "month")
         private Integer month;
     @Column(name = "year")
         private Integer year;
     @Column(name = "name_ovr")
-        private String nameOvr;
+        private String name_ovr;
     @Column(name = "sal_base")
-        private String salBase;
+        private String sal_base;
     @Column(name = "jr_trv")
-        private Integer jrTrv;
+        private Integer jr_trv;
     @Column(name = "jr_fer")
-        private Integer jrFer;
+        private Integer jr_fer;
     @Column(name = "pr_heure")
-        private String prHeure;
+        private String pr_heure;
     @Column(name = "nbr_jeure")
-        private Integer nbrHeure;
+        private Integer nbr_jeure;
     @Column(name = "accompte")
         private String accompte;
     @Column(name = "pr_trans")
-        private String prTrans;
+        private String pr_trans;
     @Column(name = "pr_couf")
-        private String prCouf;
+        private String pr_couf;
     @Column(name = "pr_rnd")
-        private String prRnd;
+        private String pr_rnd;
     @Column(name = "mnt_cnss")
-        private String mntCnss;
+        private String mnt_cnss;
     @Column(name = "IR")
         private String ir;
     @Column(name = "date_pay")
-        private String datePay;
+        private String date_pay;
     @Column(name = "b_cnss")
-        private String bCnss;
+        private String b_cnss;
     @Column(name = "b_ret")
-        private String bRet;
+        private String b_ret;
     @Column(name = "sal_net")
-        private String salNet;
+        private String sal_net;
     @Column(name = "netlettre")
-        private String netLettre;
+        private String netlettre;
 
         public Fiche_P() {
         }
@@ -63,179 +63,175 @@ public class Fiche_P {
         }
 
 
-        public Integer getId() {
-            return id;
-        }
+    public Integer getId() {
+        return id;
+    }
 
-        public void setId(Integer id) {
-            this.id = id;
-        }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-        public int getIdOvr() {
-            return idOvr;
-        }
+    public Integer getId_ovr() {
+        return id_ovr;
+    }
 
-        public void setIdOvr(int idOvr) {
-            this.idOvr = idOvr;
-        }
+    public void setId_ovr(Integer id_ovr) {
+        this.id_ovr = id_ovr;
+    }
 
-        public int getMonth() {
-            return month;
-        }
+    public Integer getMonth() {
+        return month;
+    }
 
-        public void setMonth(int month) {
-            this.month = month;
-        }
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
 
-        public int getYear() {
-            return year;
-        }
+    public Integer getYear() {
+        return year;
+    }
 
-        public void setYear(int year) {
-            this.year = year;
-        }
+    public void setYear(Integer year) {
+        this.year = year;
+    }
 
-        public String getNameOvr() {
-            return nameOvr;
-        }
+    public String getName_ovr() {
+        return name_ovr;
+    }
 
-        public void setNameOvr(String nameOvr) {
-            this.nameOvr = nameOvr;
-        }
+    public void setName_ovr(String name_ovr) {
+        this.name_ovr = name_ovr;
+    }
 
+    public String getSal_base() {
+        return sal_base;
+    }
 
+    public void setSal_base(String sal_base) {
+        this.sal_base = sal_base;
+    }
 
-        public int getJrTrv() {
-            return jrTrv;
-        }
+    public Integer getJr_trv() {
+        return jr_trv;
+    }
 
-        public void setJrTrv(int jrTrv) {
-            this.jrTrv = jrTrv;
-        }
+    public void setJr_trv(Integer jr_trv) {
+        this.jr_trv = jr_trv;
+    }
 
-        public int getJrFer() {
-            return jrFer;
-        }
+    public Integer getJr_fer() {
+        return jr_fer;
+    }
 
-        public void setJrFer(int jrFer) {
-            this.jrFer = jrFer;
-        }
+    public void setJr_fer(Integer jr_fer) {
+        this.jr_fer = jr_fer;
+    }
 
+    public String getPr_heure() {
+        return pr_heure;
+    }
 
-        public int getNbrHeure() {
-            return nbrHeure;
-        }
+    public void setPr_heure(String pr_heure) {
+        this.pr_heure = pr_heure;
+    }
 
-        public void setNbrHeure(int nbrHeure) {
-            this.nbrHeure = nbrHeure;
-        }
+    public Integer getNbr_jeure() {
+        return nbr_jeure;
+    }
 
+    public void setNbr_jeure(Integer nbr_jeure) {
+        this.nbr_jeure = nbr_jeure;
+    }
 
-        public String getDatePay() {
-            return datePay;
-        }
+    public String getAccompte() {
+        return accompte;
+    }
 
-        public void setDatePay(String datePay) {
-            this.datePay = datePay;
-        }
+    public void setAccompte(String accompte) {
+        this.accompte = accompte;
+    }
 
-        public String getSalBase() {
-            return salBase;
-        }
+    public String getPr_trans() {
+        return pr_trans;
+    }
 
-        public void setSalBase(String salBase) {
-            this.salBase = salBase;
-        }
+    public void setPr_trans(String pr_trans) {
+        this.pr_trans = pr_trans;
+    }
 
-        public String getPrHeure() {
-            return prHeure;
-        }
+    public String getPr_couf() {
+        return pr_couf;
+    }
 
-        public void setPrHeure(String prHeure) {
-            this.prHeure = prHeure;
-        }
+    public void setPr_couf(String pr_couf) {
+        this.pr_couf = pr_couf;
+    }
 
-        public String getAccompte() {
-            return accompte;
-        }
+    public String getPr_rnd() {
+        return pr_rnd;
+    }
 
-        public void setAccompte(String accompte) {
-            this.accompte = accompte;
-        }
+    public void setPr_rnd(String pr_rnd) {
+        this.pr_rnd = pr_rnd;
+    }
 
-        public String getPrTrans() {
-            return prTrans;
-        }
+    public String getMnt_cnss() {
+        return mnt_cnss;
+    }
 
-        public void setPrTrans(String prTrans) {
-            this.prTrans = prTrans;
-        }
+    public void setMnt_cnss(String mnt_cnss) {
+        this.mnt_cnss = mnt_cnss;
+    }
 
-        public String getPrCouf() {
-            return prCouf;
-        }
+    public String getIr() {
+        return ir;
+    }
 
-        public void setPrCouf(String prCouf) {
-            this.prCouf = prCouf;
-        }
+    public void setIr(String ir) {
+        this.ir = ir;
+    }
 
-        public String getPrRnd() {
-            return prRnd;
-        }
+    public String getDate_pay() {
+        return date_pay;
+    }
 
-        public void setPrRnd(String prRnd) {
-            this.prRnd = prRnd;
-        }
+    public void setDate_pay(String date_pay) {
+        this.date_pay = date_pay;
+    }
 
-        public String getMntCnss() {
-            return mntCnss;
-        }
+    public String getB_cnss() {
+        return b_cnss;
+    }
 
-        public void setMntCnss(String mntCnss) {
-            this.mntCnss = mntCnss;
-        }
+    public void setB_cnss(String b_cnss) {
+        this.b_cnss = b_cnss;
+    }
 
-        public String getIr() {
-            return ir;
-        }
+    public String getB_ret() {
+        return b_ret;
+    }
 
-        public void setIr(String ir) {
-            this.ir = ir;
-        }
+    public void setB_ret(String b_ret) {
+        this.b_ret = b_ret;
+    }
 
-        public String getbCnss() {
-            return bCnss;
-        }
+    public String getSal_net() {
+        return sal_net;
+    }
 
-        public void setbCnss(String bCnss) {
-            this.bCnss = bCnss;
-        }
+    public void setSal_net(String sal_net) {
+        this.sal_net = sal_net;
+    }
 
-        public String getbRet() {
-            return bRet;
-        }
+    public String getNetlettre() {
+        return netlettre;
+    }
 
-        public void setbRet(String bRet) {
-            this.bRet = bRet;
-        }
+    public void setNetlettre(String netlettre) {
+        this.netlettre = netlettre;
+    }
 
-        public String getSalNet() {
-            return salNet;
-        }
-
-        public void setSalNet(String salNet) {
-            this.salNet = salNet;
-        }
-
-        public String getNetLettre() {
-            return netLettre;
-        }
-
-        public void setNetLettre(String netLettre) {
-            this.netLettre = netLettre;
-        }
-
-        @Override
+    @Override
         public String toString() {
             return "Fiche_P[ id=" + id + " ]";
         }

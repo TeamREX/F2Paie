@@ -52,6 +52,8 @@ public class Employee {
         private Company company;
 
 
+    public Employee() {}
+
     public Employee(Integer id) {
         this.id = id;
     }
@@ -101,9 +103,6 @@ public class Employee {
 
         public void setGrade(Integer grade) {
             this.grade = grade;
-        }
-
-        public Employee() {
         }
 
         public Integer getId() {
