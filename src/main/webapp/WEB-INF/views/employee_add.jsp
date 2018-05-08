@@ -29,7 +29,7 @@
         <!-- select input -->
         <div class="form-group">
             <form:label path="poste">Société</form:label><br>
-            <form:select path="company" class="form-control select2">
+            <form:select path="company" class="form-control select2" id="company">
                 <c:forEach var="cmp" items="${companies}">
                 <form:option value="${cmp}" label="${cmp.nom}"/>
                 </c:forEach>
@@ -76,25 +76,23 @@
                 <!-- select input -->
                 <div class="form-group">
                     <form:label path="poste">Poste</form:label><br>
-                    <form:select path="poste" class="form-control select2">
-                        <form:option value="poste1" label="Poste 1"/>
-                        <form:option value="poste2" label="Poste 2"/>
-                    </form:select>
+                    <form:input path="poste" type="text" class="form-control" value="1" placeholder="Enter ..." id="poste" onchange="getSalary()"/>
+
                 </div>
             <!-- text input -->
             <div class="form-group">
                 <form:label path="grade">Grade</form:label>
-                <form:input path="grade" type="number" class="form-control" placeholder="Enter ..."/>
+                <form:input path="grade" type="number" value="0" min="0" max="13" class="form-control" placeholder="Enter ..." id="grade" onchange="getSalary()"/>
             </div>
             <!-- text input -->
             <div class="form-group">
                 <form:label path="salaire">Salaire</form:label>
-                <form:input path="salaire" type="number" class="form-control" placeholder="Enter ..."/>
+                <form:input id="salary" path="salaire" type="number" class="form-control" placeholder="Enter ..."/>
             </div>
             <!-- text input -->
             <div class="form-group">
                 <form:label path="r_admin">r_admin</form:label>
-                <form:checkbox class="flat-red" path="r_admin" value="1" />
+                <form:checkbox class="flat-red" path="r_admin" value="0" id="admin" onchange="getSalary()"/>
             </div>
 
             <!-- text input -->
@@ -123,6 +121,28 @@
 <script src="/template/bower_components/select2/dist/js/select2.full.min.js"></script>
 
 <script>
+
+    function getSalary() {
+        var company = document.getElementById("company").value.toLowerCase() ;
+        var poste = document.getElementById("poste").value ;
+        var grade = document.getElementById("grade").value ;
+        var admin = document.getElementById("admin").value ;
+
+        if (admin==""){
+            admin=0;
+        }
+        console.log("c "+company+" p "+poste+" g "+grade+" a "+admin)
+
+        if (company.includes("boulangerie")){
+            console.log("p "+poste+" g "+grade+" a "+admin)
+            $.ajax({url: "/api/getSalary/"+poste+"/"+grade+"/"+admin , success: function(result){
+                document.getElementById("salary").value = result['salaire'];
+            }});
+        }
+
+
+    }
+
   $(function () {
       //Initialize Select2 Elements
       $('.select2').select2()

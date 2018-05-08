@@ -8,6 +8,7 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,7 +61,7 @@ public class EmployeeServiceImp implements EmployeeService {
     }
 
     @Override
-    public List find_salaire_from_xls (int poste , int r_admin , int grade) {
+    public List find_salaire_from_xls (int poste , int grade, int r_admin ) {
         List lst = new ArrayList() ;
 
         int col ;
@@ -70,7 +71,7 @@ public class EmployeeServiceImp implements EmployeeService {
 
         try {
 
-            Workbook workbook = Workbook.getWorkbook(new File("/xls/table.xls"));
+            Workbook workbook = Workbook.getWorkbook(ResourceUtils.getFile("classpath:static/xls/table.xls"));
             Sheet sheet = workbook.getSheet(0);
             Cell b1 , b2;
 
@@ -148,6 +149,7 @@ public class EmployeeServiceImp implements EmployeeService {
 
         } catch (IOException ex) {
             System.out.println("100");
+            ex.printStackTrace();
             lst.add(1) ;lst.add(0) ;
 
             return lst ;
