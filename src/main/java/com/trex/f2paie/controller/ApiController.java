@@ -22,8 +22,15 @@ public class ApiController {
     }
 
     @RequestMapping("/getSalary/{poste}/{grade}/{admin}")
-    public HashMap getEmpSalary(@PathVariable int poste, @PathVariable int grade, @PathVariable int admin){
+    public HashMap getEmpSalary(@PathVariable String poste, @PathVariable String grade, @PathVariable String admin){
         HashMap<String,Integer> result = new HashMap<>();
+        if (poste.equals(""))
+            poste="0";
+        if (grade.equals(""))
+            grade="0";
+        if (admin.equals(""))
+            admin="0";
+
         List<Integer> list = employeeService.find_salaire_from_xls(poste, grade, admin);
         result.put("salaire",list.get(0));
         result.put("heure",list.get(1));

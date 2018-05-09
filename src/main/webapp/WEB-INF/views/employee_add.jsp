@@ -123,7 +123,8 @@
 <script>
 
     function getSalary() {
-        var company = document.getElementById("company").value.toLowerCase() ;
+        var comp = document.getElementById("company");
+        var company = comp.options[comp.selectedIndex].innerHTML.toLowerCase() ;
         var poste = document.getElementById("poste").value ;
         var grade = document.getElementById("grade").value ;
         var admin = document.getElementById("admin").value ;
@@ -131,10 +132,10 @@
         if (admin==""){
             admin=0;
         }
-        console.log("c "+company+" p "+poste+" g "+grade+" a "+admin)
+
 
         if (company.includes("boulangerie")){
-            console.log("p "+poste+" g "+grade+" a "+admin)
+            console.log("c "+company+" p "+poste+" g "+grade+" a "+admin)
             $.ajax({url: "/api/getSalary/"+poste+"/"+grade+"/"+admin , success: function(result){
                 document.getElementById("salary").value = result['salaire'];
             }});
