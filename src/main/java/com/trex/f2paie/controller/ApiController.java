@@ -31,7 +31,7 @@ public class ApiController {
         if (admin.equals(""))
             admin="0";
 
-        List<Integer> list = employeeService.find_salaire_from_xls(poste, grade, admin);
+        List<Integer> list = employeeService.find_salaire_from_xls(Integer.parseInt(poste), Integer.parseInt(grade), Integer.parseInt(admin) );
         result.put("salaire",list.get(0));
         result.put("heure",list.get(1));
 
