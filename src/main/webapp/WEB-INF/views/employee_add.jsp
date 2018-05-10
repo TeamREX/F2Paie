@@ -76,25 +76,24 @@
                 <!-- select input -->
                 <div class="form-group">
                     <form:label path="poste">Poste</form:label><br>
-                    <form:input path="poste" type="text" class="form-control" value="1" placeholder="Enter ..." id="poste" onchange="getSalary()"/>
+                    <form:input path="poste" type="text" class="form-control" value="1" placeholder="Enter ..." id="poste" onkeyup="getSalary();"/>
 
                 </div>
             <!-- text input -->
             <div class="form-group">
                 <form:label path="grade">Grade</form:label>
-                <form:input path="grade" type="number" value="0" min="0" max="13" class="form-control" placeholder="Enter ..." id="grade" onchange="getSalary()"/>
+                <form:input path="grade" type="number" value="1" min="0" max="13" class="form-control" placeholder="Enter ..." id="grade" onkeyup="getSalary();" onchange="getSalary();"/>
+            </div>
+            <!-- text input -->
+            <div class="form-group" >
+                <form:label path="r_admin">r_admin</form:label>
+                <form:input path="r_admin" type="number" value="1" min="1" max="8" class="form-control" placeholder="Enter ..." id="r_admin" onkeyup="getSalary();" onchange="getSalary();"/>
             </div>
             <!-- text input -->
             <div class="form-group">
                 <form:label path="salaire">Salaire</form:label>
                 <form:input id="salary" path="salaire" type="number" class="form-control" placeholder="Enter ..."/>
             </div>
-            <!-- text input -->
-            <div class="form-group">
-                <form:label path="r_admin">r_admin</form:label>
-                <form:checkbox class="flat-red" path="r_admin" value="0" id="admin" onchange="getSalary()"/>
-            </div>
-
             <!-- text input -->
             <div class="form-group">
                 <form:label path="cnss">CNSS</form:label>
@@ -104,7 +103,7 @@
 
     </div>
     <div class="box-footer">
-        <button type="submit" class="btn btn-lg btn-success pull-right">Ajouter</button>
+        <button class="btn btn-lg btn-success pull-right">Ajouter</button>
     </div>
 </form:form>
 
@@ -127,12 +126,7 @@
         var company = comp.options[comp.selectedIndex].innerHTML.toLowerCase() ;
         var poste = document.getElementById("poste").value ;
         var grade = document.getElementById("grade").value ;
-        var admin = document.getElementById("admin").value ;
-
-        if (admin==""){
-            admin=0;
-        }
-
+        var admin = document.getElementById("r_admin").value ;
 
         if (company.includes("boulangerie")){
             console.log("c "+company+" p "+poste+" g "+grade+" a "+admin)

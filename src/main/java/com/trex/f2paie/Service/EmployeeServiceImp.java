@@ -64,8 +64,7 @@ public class EmployeeServiceImp implements EmployeeService {
     public List find_salaire_from_xls (int poste , int grade, int r_admin ) {
         List lst = new ArrayList() ;
 
-        int col ;
-        col = (14-grade);
+        int col = (14-grade);
         int sal;
         int heure ;
 

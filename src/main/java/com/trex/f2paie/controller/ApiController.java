@@ -25,11 +25,11 @@ public class ApiController {
     public HashMap getEmpSalary(@PathVariable String poste, @PathVariable String grade, @PathVariable String admin){
         HashMap<String,Integer> result = new HashMap<>();
         if (poste.equals(""))
-            poste="0";
+            poste="1";
         if (grade.equals(""))
-            grade="0";
+            grade="1";
         if (admin.equals(""))
-            admin="0";
+            admin="1";
 
         List<Integer> list = employeeService.find_salaire_from_xls(Integer.parseInt(poste), Integer.parseInt(grade), Integer.parseInt(admin) );
         result.put("salaire",list.get(0));
