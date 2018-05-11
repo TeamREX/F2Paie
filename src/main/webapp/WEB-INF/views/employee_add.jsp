@@ -20,7 +20,7 @@
 
 <div class="box box-primary">
     <div class="box-header with-border">
-        <i class="fa fa-user-plus"></i> <span><h3 class="box-title">Ajout d'un employeur</h3></span>
+        <i class="fa fa-user-plus"></i> <span><h3 class="box-title">Ajout d'un employé</h3></span>
     </div>
     <!-- /.box-header -->
 

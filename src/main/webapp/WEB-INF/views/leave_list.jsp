@@ -1,11 +1,13 @@
 <%--
   Created by IntelliJ IDEA.
   User: ytalab
-  Date: 11/04/2018
-  Time: 08:22
+  Date: 11/05/2018
+  Time: 15:27
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-15" pageEncoding="ISO-8859-15"%>
+
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- DataTables -->
@@ -14,45 +16,37 @@
 
     <div class="box">
         <div class="box-header">
-            <i class="fa fa-group"></i> <span><h3 class="box-title">Liste des Employés</h3></span>
-            <button type="button" class="btn btn-success pull-right" onclick="location.href='/employee/add';"><i class="fa fa-user-plus"></i></button>
+            <i class="fa fa-calendar"></i> <span><h3 class="box-title"> Liste des Congés pour <b>${employee.prenom} ${employee.nom} </b></h3></span>
+            <button type="button" class="btn btn-success pull-right" onclick="location.href='/leave/add/${employee.id}';"><i class="fa fa-calendar-plus-o"></i> Ajouter Congé</button>
 
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-            <table id="employees" class="table table-bordered table-striped">
+            <table id="leaves" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Prenom</th>
-                    <th>Nom</th>
-                    <th>Société</th>
-                    <th>Poste</th>
-                    <th>Grade</th>
-                    <th>CNSS</th>
+                    <th>Type</th>
+                    <th>Date debut</th>
+                    <th>Date fin</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-    <c:if test="${not empty employees}">
-        <c:forEach var="emp" items="${employees}">
-                <tr>
-                    <td>${emp.prenom}</td>
-                    <td>${emp.nom}</td>
-                    <td>${emp.company.nom}</td>
-                    <td>${emp.poste}</td>
-                    <td>${emp.grade}</td>
-                    <td>${emp.cnss}</td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default" onclick="location.href='/employee/show/${emp.id}';"><i class="fa fa-eye"></i></button>
-                            <button type="button" class="btn btn-danger" onclick="editID(${emp.id},'${emp.prenom} ${emp.nom}')" data-toggle="modal" data-target="#modal-default"><i class="fa fa-remove"></i></button>
-                            <button type="button" class="btn btn-warning" onclick="location.href='/leave/list/${emp.id}';"><i class="fa fa-calendar"></i></button>
-
-                        </div>
-                    </td>
-                </tr>
-        </c:forEach>
-    </c:if>
+                <c:if test="${not empty leaves}">
+                    <c:forEach var="leave" items="${leaves}">
+                        <tr>
+                            <td>${leave.type}</td>
+                            <td>${leave.startDate}</td>
+                            <td>${leave.endDate}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default" onclick="location.href='/leave/show/${leave.id}';"><i class="fa fa-eye"></i></button>
+                                    <button type="button" class="btn btn-danger" onclick="editID(${leave.id},'${leave.type}','${leave.startDate}','${leave.endDate}')" data-toggle="modal" data-target="#modal-default"><i class="fa fa-remove"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </c:if>
                 </tbody>
             </table>
         </div>
@@ -64,10 +58,10 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Supprimer Employé</h4>
+                    <h4 class="modal-title">Supprimer Congé</h4>
                 </div>
                 <div class="modal-body">
-                    <p id="modal_txt">Êtes-vous sûr de vouloir supprimer l'employé </p>
+                    <p id="modal_txt">Êtes-vous sûr de vouloir supprimer le congé de la periode du - au - </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Annuler</button>
@@ -86,14 +80,14 @@
     <script src="/template/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="/template/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script>
-        function editID(id,name)
+        function editID(id,start,end)
         {
-            document.getElementById("delete_btn").href="/employee/removeEmployee/"+id;
-            document.getElementById("modal_txt").innerHTML ="Êtes-vous sûr de vouloir supprimer l'employé   <b>"+name+"</b>";
+            document.getElementById("delete_btn").href="/leave/delete/"+id;
+            document.getElementById("modal_txt").innerHTML ="Êtes-vous sûr de vouloir supprimer le Congé de la période du  <b>"+start+" au "+end+"</b>";
         }
 
         $(function () {
-            $('#employees').DataTable()
+            $('#leaves').DataTable()
             $('#example2').DataTable({
                 'paging'      : true,
                 'lengthChange': false,
@@ -105,3 +99,4 @@
         })
     </script>
 </t:template>
+

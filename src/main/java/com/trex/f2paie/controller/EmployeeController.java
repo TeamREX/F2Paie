@@ -33,20 +33,6 @@ public class EmployeeController {
         return modelAndView;
     }
 
-    @RequestMapping("/list")
-    public String list_employe( ModelMap model){
-        List<String> list1 = new ArrayList<String>();
-        List<String> list2 = new ArrayList<String>();
-        Collections.copy(list1, list2);
-
-        ArrayList<Employee> employees = (ArrayList<Employee>) employeeService.getAllEmployees();
-
-        System.out.println("emp : "+employees+" number : "+employees.size());
-
-        model.addAttribute("employees", employees);
-        return"employee_list";
-    }
-
     @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
     public String submit(@Valid @ModelAttribute("employee")Employee employee,
                          BindingResult result, ModelMap model){
@@ -59,6 +45,20 @@ public class EmployeeController {
         employeeService.addEmployee(employee);
 
         return "redirect:/employee/list";
+    }
+
+    @RequestMapping("/list")
+    public String list_employe( ModelMap model){
+        List<String> list1 = new ArrayList<String>();
+        List<String> list2 = new ArrayList<String>();
+        Collections.copy(list1, list2);
+
+        ArrayList<Employee> employees = (ArrayList<Employee>) employeeService.getAllEmployees();
+
+        System.out.println("emp : "+employees+" number : "+employees.size());
+
+        model.addAttribute("employees", employees);
+        return"employee_list";
     }
 
     @RequestMapping("/show/{id}")
