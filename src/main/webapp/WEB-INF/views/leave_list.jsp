@@ -35,13 +35,23 @@
                 <c:if test="${not empty leaves}">
                     <c:forEach var="leave" items="${leaves}">
                         <tr>
-                            <td>${leave.type}</td>
+                            <c:choose>
+                                <c:when test = "${leave.type == 'paid'}">
+                                    <td><span class="label label-success">Payé</span></td>
+                                </c:when>
+                                <c:when test = "${leave.type == 'unpaid'}">
+                                    <td><span class="label label-danger">Non Payé</span></td>
+                                </c:when>
+                                <c:when test = "${leave.type == 'sick'}">
+                                    <td><span class="label label-warning">Maladie</span></td>
+                                </c:when>
+                            </c:choose>
                             <td>${leave.startDate}</td>
                             <td>${leave.endDate}</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default" onclick="location.href='/leave/show/${leave.id}';"><i class="fa fa-eye"></i></button>
-                                    <button type="button" class="btn btn-danger" onclick="editID(${leave.id},'${leave.type}','${leave.startDate}','${leave.endDate}')" data-toggle="modal" data-target="#modal-default"><i class="fa fa-remove"></i></button>
+                                    <button type="button" class="btn btn-danger" onclick="editID(${leave.id},'${leave.startDate}','${leave.endDate}')" data-toggle="modal" data-target="#modal-default"><i class="fa fa-remove"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -82,7 +92,7 @@
     <script>
         function editID(id,start,end)
         {
-            document.getElementById("delete_btn").href="/leave/delete/"+id;
+            document.getElementById("delete_btn").href="/leave/delete/"+id+"/"+${employee.id};
             document.getElementById("modal_txt").innerHTML ="Êtes-vous sûr de vouloir supprimer le Congé de la période du  <b>"+start+" au "+end+"</b>";
         }
 

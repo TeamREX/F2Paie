@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "company")
-public class Company {
+public class Company extends Auditable{
 
     /**
      *

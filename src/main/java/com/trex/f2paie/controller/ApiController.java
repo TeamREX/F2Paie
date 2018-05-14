@@ -24,11 +24,11 @@ public class ApiController {
     @RequestMapping("/getSalary/{poste}/{grade}/{admin}")
     public HashMap getEmpSalary(@PathVariable String poste, @PathVariable String grade, @PathVariable String admin){
         HashMap<String,Integer> result = new HashMap<>();
-        if (poste.equals(""))
+        if (poste.equals("") || poste.equals("undefined"))
             poste="1";
-        if (grade.equals(""))
+        if (grade.equals("") || grade.equals("undefined"))
             grade="1";
-        if (admin.equals(""))
+        if (admin.equals("") || admin.equals("undefined"))
             admin="1";
 
         List<Integer> list = employeeService.find_salaire_from_xls(Integer.parseInt(poste), Integer.parseInt(grade), Integer.parseInt(admin) );

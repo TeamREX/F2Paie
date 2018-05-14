@@ -9,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "fichier")
-public class Fiche_P {
+public class Fiche_P extends Auditable{
 
     @Id
     @GeneratedValue

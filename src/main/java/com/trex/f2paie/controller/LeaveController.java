@@ -64,13 +64,14 @@ public class LeaveController {
         System.out.println(leave);
 
         model.addAttribute("leave",leave);
+        model.addAttribute("employee",leave.getEmployee());
         return"leave_show";
     }
 
-    @RequestMapping("/delete/{idLeave}")
-    public String remove(@PathVariable Integer idLeave){
+    @RequestMapping("/delete/{idLeave}/{idEmp}")
+    public String remove(@PathVariable Integer idLeave, @PathVariable Integer idEmp){
         leaveService.deleteLeave(idLeave);
-        return "redirect:/leave/list";
+        return "redirect:/leave/list/"+idEmp;
     }
 
 }

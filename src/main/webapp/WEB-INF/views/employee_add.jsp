@@ -29,7 +29,7 @@
         <!-- select input -->
         <div class="form-group">
             <form:label path="poste">Société</form:label><br>
-            <form:select path="company" class="form-control select2" id="company">
+            <form:select path="company" class="form-control select2" id="company" onchange="getSalary();">
                 <c:forEach var="cmp" items="${companies}">
                 <form:option value="${cmp}" label="${cmp.nom}"/>
                 </c:forEach>
@@ -75,20 +75,32 @@
             </div>
                 <!-- select input -->
                 <div class="form-group">
-                    <form:label path="poste">Poste</form:label><br>
-                    <form:input path="poste" type="text" class="form-control" value="1" placeholder="Enter ..." id="poste" onkeyup="getSalary();"/>
-
+                    <form:label path="poste">Poste</form:label>
+                    <form:select path="poste" class="form-control select2" onchange="getSalary();" id="poste" >
+                        <form:option value="1" label="Administration"/>
+                        <form:option value="2" label="Passeur de planche"/>
+                        <form:option value="3" label="Peseur"/>
+                        <form:option value="4" label="Paitresseur"/>
+                        <form:option value="5" label="Maitre de pelle"/>
+                    </form:select>
                 </div>
+
             <!-- text input -->
             <div class="form-group">
                 <form:label path="grade">Grade</form:label>
                 <form:input path="grade" type="number" value="1" min="0" max="13" class="form-control" placeholder="Enter ..." id="grade" onkeyup="getSalary();" onchange="getSalary();"/>
             </div>
             <!-- text input -->
-            <div class="form-group" >
-                <form:label path="r_admin">r_admin</form:label>
+            <div class="form-group" id="r_admin">
+                <form:label path="r_admin">Categorie admin</form:label>
                 <form:input path="r_admin" type="number" value="1" min="1" max="8" class="form-control" placeholder="Enter ..." id="r_admin" onkeyup="getSalary();" onchange="getSalary();"/>
             </div>
+
+        <!-- text input -->
+        <div class="form-group">
+            <form:label path="poste_name">Nom de la Poste</form:label>
+            <form:input path="poste_name" type="text" class="form-control" placeholder="poste" id="poste_name" />
+        </div>
             <!-- text input -->
             <div class="form-group">
                 <form:label path="salaire">Salaire</form:label>
@@ -121,14 +133,35 @@
 
 <script>
 
+    getSalary();
+
+    function setPostName() {
+        var poste = document.getElementById("poste") ;
+        var poste_name = document.getElementById("poste_name") ;
+        poste_name.value =  poste.options[poste.selectedIndex].innerHTML;
+    }
+
     function getSalary() {
         var comp = document.getElementById("company");
         var company = comp.options[comp.selectedIndex].innerHTML.toLowerCase() ;
+
+        if (company.includes("boulangerie")){
+
         var poste = document.getElementById("poste").value ;
         var grade = document.getElementById("grade").value ;
         var admin = document.getElementById("r_admin").value ;
 
-        if (company.includes("boulangerie")){
+        if(poste == 1){
+            $('#r_admin').show() ;
+            admin = document.getElementById("r_admin").value ;
+            }
+            else{
+            $('#r_admin').hide() ;
+            admin = 0 ;
+        }
+
+
+            setPostName();
             console.log("c "+company+" p "+poste+" g "+grade+" a "+admin)
             $.ajax({url: "/api/getSalary/"+poste+"/"+grade+"/"+admin , success: function(result){
                 document.getElementById("salary").value = result['salaire'];

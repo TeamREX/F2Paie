@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ouvrier")
-public class Employee {
+public class Employee extends Auditable {
 
     /**
      *
@@ -35,6 +35,9 @@ public class Employee {
 
     @Column(name = "poste")
         private String poste  ;
+
+    @Column(name = "poste_name")
+    private String poste_name  ;
 
     @Column(name = "r_admin")
         private Integer r_admin ;
@@ -81,7 +84,15 @@ public class Employee {
             this.cnss = cnss;
         }
 
-        public String getPoste() {
+    public String getPoste_name() {
+        return poste_name;
+    }
+
+    public void setPoste_name(String poste_name) {
+        this.poste_name = poste_name;
+    }
+
+    public String getPoste() {
             return poste;
         }
 

@@ -1,6 +1,7 @@
 package com.trex.f2paie.Entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  *
@@ -8,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "absence")
-public class Leave {
+public class Leave extends Auditable {
 
     @Id
     @GeneratedValue
@@ -24,18 +25,15 @@ public class Leave {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id")
     private Employee employee;
-    @Column(name = "createdAt")
-    private String createdAt;
 
     public Leave() {}
 
-    public Leave(String type, String description, String startDate, String endDate, Employee employee, String createdAt) {
+    public Leave(String type, String description, String startDate, String endDate, Employee employee) {
         this.type = type;
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
         this.employee = employee;
-        this.createdAt = createdAt;
     }
 
     public Integer getId() {
@@ -86,14 +84,6 @@ public class Leave {
         this.employee = employee;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
     @Override
     public String toString() {
         return "Leave{" +
@@ -103,7 +93,8 @@ public class Leave {
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
                 ", employee=" + employee +
-                ", createdAt='" + createdAt + '\'' +
+                ", createdAt='" + creationDate + '\'' +
+                ", editedAt='" + lastModifiedDate + '\'' +
                 '}';
     }
 }

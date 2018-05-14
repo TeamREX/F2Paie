@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ytalab
-  Date: 11/05/2018
-  Time: 16:01
+  Date: 14/05/2018
+  Time: 10:23
   To change this template use File | Settings | File Templates.
 --%>
 
@@ -20,11 +20,12 @@
 
     <div class="box box-primary">
         <div class="box-header with-border">
-            <i class="fa fa-calendar-plus-o"></i> <span><h3 class="box-title">Ajout d'un Congé à <b>${employee.prenom} ${employee.nom}</b></h3></span>
+            <i class="fa fa-calendar-plus-o"></i> <span><h3 class="box-title">Details Congé pour <b>${employee.prenom} ${employee.nom}</b></h3></span>
         </div>
         <!-- /.box-header -->
 
         <form:form role="form" method="POST" action="/leave/addLeave" modelAttribute="leave">
+            <form:hidden path="id"/>
             <div class="box-body">
                 <form:hidden path="employee" value="${employee.id}"/>
                 <!-- text input -->
@@ -99,3 +100,4 @@
 
 
 </t:template>
+
