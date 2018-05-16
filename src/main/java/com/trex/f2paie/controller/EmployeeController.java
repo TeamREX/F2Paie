@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Controller
@@ -48,7 +51,7 @@ public class EmployeeController {
     }
 
     @RequestMapping("/list")
-    public String list_employe( ModelMap model){
+    public String list_employee( ModelMap model){
         List<String> list1 = new ArrayList<String>();
         List<String> list2 = new ArrayList<String>();
         Collections.copy(list1, list2);
@@ -62,13 +65,19 @@ public class EmployeeController {
     }
 
     @RequestMapping("/show/{id}")
-    public String list_employee( @PathVariable int id, ModelMap model){
+    public String show_employee( @PathVariable int id, ModelMap model){
 
         Employee employee =  employeeService.getEmployee(id);
+
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fullBirthday = LocalDate.parse(employee.getDateNaiss(),df);
+        LocalDate now = LocalDate.now();
+        int age = Period.between(fullBirthday, now).getYears();
 
         System.out.println("emp : "+employee);
 
         model.addAttribute("employee", employee);
+        model.addAttribute("age", age);
         model.addAttribute("companies",companyService.getAllCompanies());
         return"employee_show";
     }

@@ -12,11 +12,12 @@ import javax.persistence.*;
 public class Fiche_P extends Auditable{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY )
         private Integer id;
 
-    @Column(name = "id_ovr")
-        private Integer id_ovr;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_employee")
+        private Employee employee;
 
     @Column(name = "month")
         private Integer month;
@@ -24,53 +25,53 @@ public class Fiche_P extends Auditable{
     @Column(name = "year")
         private Integer year;
 
-    @Column(name = "sal_base")
-        private String sal_base;
+    @Column(name = "base_salary")
+        private String baseSalary;
 
-    @Column(name = "jr_trv")
-        private Integer jr_trv;
+    @Column(name = "worked_days")
+        private Integer workedDays;
 
-    @Column(name = "jr_fer")
-        private Integer jr_fer;
+    @Column(name = "extra_days")
+    private Integer extraDays;
 
-    @Column(name = "pr_heure")
-        private String pr_heure;
+    @Column(name = "extra_hours")
+        private Integer extraHours;
 
-    @Column(name = "nbr_jeure")
-        private Integer nbr_jeure;
+    @Column(name = "price_houre")
+        private String priceHoure;
 
     @Column(name = "accompte")
         private String accompte;
 
-    @Column(name = "pr_trans")
-        private String pr_trans;
+    @Column(name = "prime_transport")
+        private String primeTransport;
 
-    @Column(name = "pr_couf")
-        private String pr_couf;
+    @Column(name = "prime_couffin")
+        private String primeCouffin;
 
-    @Column(name = "pr_rnd")
-        private String pr_rnd;
+    @Column(name = "prime_rondement")
+        private String primeRondement;
 
-    @Column(name = "mnt_cnss")
-        private String mnt_cnss;
+    @Column(name = "montant_cnss")
+        private String mntCnss;
 
     @Column(name = "IR")
         private String ir;
 
     @Column(name = "date_pay")
-        private String date_pay;
+        private String datePayement;
 
-    @Column(name = "b_cnss")
-        private String b_cnss;
+    @Column(name = "base_cnss")
+        private String baseCnss;
 
-    @Column(name = "b_ret")
-        private String b_ret;
+    @Column(name = "base_retenue")
+        private String baseRetenue;
 
-    @Column(name = "sal_net")
-        private String sal_net;
+    @Column(name = "net_salary")
+        private String netSalary;
 
-    @Column(name = "netlettre")
-        private String netlettre;
+    @Column(name = "brut_salary")
+    private String brutSalary;
 
         public Fiche_P() {
         }
@@ -79,6 +80,166 @@ public class Fiche_P extends Auditable{
             this.id = id;
         }
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getBaseSalary() {
+        return baseSalary;
+    }
+
+    public void setBaseSalary(String baseSalary) {
+        this.baseSalary = baseSalary;
+    }
+
+    public Integer getWorkedDays() {
+        return workedDays;
+    }
+
+    public void setWorkedDays(Integer workedDays) {
+        this.workedDays = workedDays;
+    }
+
+    public Integer getExtraDays() {
+        return extraDays;
+    }
+
+    public void setExtraDays(Integer extraDays) {
+        this.extraDays = extraDays;
+    }
+
+    public Integer getExtraHours() {
+        return extraHours;
+    }
+
+    public void setExtraHours(Integer extraHours) {
+        this.extraHours = extraHours;
+    }
+
+    public String getPriceHoure() {
+        return priceHoure;
+    }
+
+    public void setPriceHoure(String priceHoure) {
+        this.priceHoure = priceHoure;
+    }
+
+    public String getAccompte() {
+        return accompte;
+    }
+
+    public void setAccompte(String accompte) {
+        this.accompte = accompte;
+    }
+
+    public String getPrimeTransport() {
+        return primeTransport;
+    }
+
+    public void setPrimeTransport(String primeTransport) {
+        this.primeTransport = primeTransport;
+    }
+
+    public String getPrimeCouffin() {
+        return primeCouffin;
+    }
+
+    public void setPrimeCouffin(String primeCouffin) {
+        this.primeCouffin = primeCouffin;
+    }
+
+    public String getPrimeRondement() {
+        return primeRondement;
+    }
+
+    public void setPrimeRondement(String primeRondement) {
+        this.primeRondement = primeRondement;
+    }
+
+    public String getMntCnss() {
+        return mntCnss;
+    }
+
+    public void setMntCnss(String mntCnss) {
+        this.mntCnss = mntCnss;
+    }
+
+    public String getIr() {
+        return ir;
+    }
+
+    public void setIr(String ir) {
+        this.ir = ir;
+    }
+
+    public String getDatePayement() {
+        return datePayement;
+    }
+
+    public void setDatePayement(String datePayement) {
+        this.datePayement = datePayement;
+    }
+
+    public String getBaseCnss() {
+        return baseCnss;
+    }
+
+    public void setBaseCnss(String baseCnss) {
+        this.baseCnss = baseCnss;
+    }
+
+    public String getBaseRetenue() {
+        return baseRetenue;
+    }
+
+    public void setBaseRetenue(String baseRetenue) {
+        this.baseRetenue = baseRetenue;
+    }
+
+    public String getNetSalary() {
+        return netSalary;
+    }
+
+    public void setNetSalary(String netSalary) {
+        this.netSalary = netSalary;
+    }
+
+    public String getBrutSalary() {
+        return brutSalary;
+    }
+
+    public void setBrutSalary(String brutSalary) {
+        this.brutSalary = brutSalary;
+    }
 
     @Override
         public String toString() {

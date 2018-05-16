@@ -9,5 +9,9 @@ public interface Fiche_pService {
     int addFicheP(Fiche_P fiche_p);
     Fiche_P getFicheP(Integer id_fiche);
     List<Fiche_P> getAllFicheP();
+    List<Fiche_P> findByEmployee_Id(Integer employee);
+    List<Fiche_P> findByMonthAndYear(Integer month,Integer year);
+    List<Fiche_P> findByEmployee_IdAndMonthAndYear(Integer employee,Integer month,Integer year);
+
 
 }

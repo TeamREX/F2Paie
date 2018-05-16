@@ -37,7 +37,7 @@ public class Employee extends Auditable {
         private String poste  ;
 
     @Column(name = "poste_name")
-    private String poste_name  ;
+    private String posteName  ;
 
     @Column(name = "r_admin")
         private Integer r_admin ;
@@ -84,13 +84,6 @@ public class Employee extends Auditable {
             this.cnss = cnss;
         }
 
-    public String getPoste_name() {
-        return poste_name;
-    }
-
-    public void setPoste_name(String poste_name) {
-        this.poste_name = poste_name;
-    }
 
     public String getPoste() {
             return poste;
@@ -178,6 +171,14 @@ public class Employee extends Auditable {
 
     public void setSalaire(String salaire) {
         this.salaire = salaire;
+    }
+
+    public String getPosteName() {
+        return posteName;
+    }
+
+    public void setPosteName(String posteName) {
+        this.posteName = posteName;
     }
 
     public Company getCompany() {

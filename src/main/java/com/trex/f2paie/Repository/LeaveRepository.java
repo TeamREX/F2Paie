@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface LeaveRepository extends CrudRepository<Leave, Integer> {
     List<Leave> findByEmployee_Id(Integer employee);
+
 }

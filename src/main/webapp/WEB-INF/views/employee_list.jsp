@@ -25,9 +25,9 @@
                 <tr>
                     <th>Prenom</th>
                     <th>Nom</th>
+                    <th>Date Naissance</th>
                     <th>Société</th>
                     <th>Poste</th>
-                    <th>Grade</th>
                     <th>CNSS</th>
                     <th>Actions</th>
                 </tr>
@@ -38,9 +38,9 @@
                 <tr>
                     <td>${emp.prenom}</td>
                     <td>${emp.nom}</td>
+                    <td>${emp.dateNaiss}</td>
                     <td>${emp.company.nom}</td>
-                    <td>${emp.poste}</td>
-                    <td>${emp.grade}</td>
+                    <td>${emp.posteName}</td>
                     <td>${emp.cnss}</td>
                     <td>
                         <div class="btn-group">
