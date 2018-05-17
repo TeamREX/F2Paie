@@ -40,27 +40,28 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="/index"><i class="fa fa-home"></i> <span>Home</span></a></li>
             <li class="treeview">
-                <a href="#"><i class="fa fa-group"></i> <span>Employés</span>
-                    <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/employee/add">Ajout Employé</a></li>
-                    <li><a href="/employee/list">Liste Employés</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
                 <a href="#"><i class="fa fa-building"></i> <span>Societés</span>
                     <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/company/add">Ajout Societé</a></li>
-                    <li><a href="/company/list">Liste Societés</a></li>
+                    <li><a href="/company/add"><i class="fa fa-plus-circle"></i> <span>Ajout Societé</span></a></li>
+                    <li><a href="/company/list"><i class="fa fa-list"></i> <span>Liste Societés</span></a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-group"></i> <span>Employés</span>
+                    <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/employee/add"><i class="fa fa-plus-circle"></i> <span>Ajout Employé</span></a></li>
+                    <li><a href="/employee/list"><i class="fa fa-list"></i> <span>Liste Employés</span></a></li>
+                </ul>
+            </li>
+
         </ul>
         <!-- /.sidebar-menu -->
     </section>

@@ -57,7 +57,7 @@
                         <!-- /.col -->
                         <div class="col-sm-4">
                             <div class="description-block">
-                                <h5 class="description-header">${employee.salaire}</h5>
+                                <h5 class="description-header" id="salaireEmp">-</h5>
                                 <span class="description-text">Salaire</span>
                             </div>
                             <!-- /.description-block -->
@@ -191,6 +191,13 @@
 
                         getSalary();
 
+
+                        function setSeparator() {
+                            var salaire = document.getElementById("salaireEmp") ;
+                            var s = ${employee.salaire} ;
+
+                            salaire.innerHTML = s.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); ;
+                        }
                         function setPostName() {
                             var poste = document.getElementById("poste") ;
                             var poste_name = document.getElementById("poste_name") ;

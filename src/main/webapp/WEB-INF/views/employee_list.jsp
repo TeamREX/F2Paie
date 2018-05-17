@@ -47,6 +47,9 @@
                             <button type="button" class="btn btn-default" onclick="location.href='/employee/show/${emp.id}';"><i class="fa fa-eye"></i></button>
                             <button type="button" class="btn btn-danger" onclick="editID(${emp.id},'${emp.prenom} ${emp.nom}')" data-toggle="modal" data-target="#modal-default"><i class="fa fa-remove"></i></button>
                             <button type="button" class="btn btn-warning" onclick="location.href='/leave/list/${emp.id}';"><i class="fa fa-calendar"></i></button>
+                            <button type="button" class="btn btn-success" onclick="location.href='/ficheP/add/${emp.id}';"><i class="fa fa-file-text-o"></i></button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='/ficheP/list/${emp.id}';"><i class="fa fa-list"></i></button>
+
 
                         </div>
                     </td>
