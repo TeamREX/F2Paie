@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ytalab
-  Date: 16/05/2018
-  Time: 11:47
+  Date: 18/05/2018
+  Time: 14:24
   To change this template use File | Settings | File Templates.
 --%>
 
@@ -22,7 +22,7 @@
 
     <div class="box box-primary">
         <div class="box-header with-border">
-            <i class="fa fa-user-plus"></i> <span><h3 class="box-title">Creation fiche de paie pour ${employee.prenom} ${employee.nom}</h3></span>
+            <i class="fa fa-user-plus"></i> <span><h3 class="box-title">Détails fiche de paie pour ${employee.prenom} ${employee.nom}</h3></span>
             <button type="button" class="btn btn-success pull-right" onclick="location.href='/employee/list';"><i class="fa fa-arrow-left"></i></button>
 
         </div>
@@ -30,19 +30,20 @@
 
         <form:form role="form" method="POST" action="/ficheP/addFiche" modelAttribute="ficheP">
             <div class="box-body">
+                <form:hidden path="id" />
                 <form:hidden path="employee" value="${employee.id}"/>
-            <div class="row">
-                <!-- text input -->
-                <div class="form-group col-md-6">
-                    <form:label path="month">Mois</form:label>
-                    <form:input id="month" path="month" type="number" value="1" min="1" max="12" class="form-control" placeholder="Entrer un mois"/>
+                <div class="row">
+                    <!-- text input -->
+                    <div class="form-group col-md-6">
+                        <form:label path="month">Mois</form:label>
+                        <form:input id="month" path="month" type="number" value="1" min="1" max="12" class="form-control" placeholder="Entrer un mois"/>
+                    </div>
+                    <!-- text input -->
+                    <div class="form-group col-md-6">
+                        <form:label path="year">Annee</form:label>
+                        <form:input id="year" path="year" type="number" value="2018" min="1950" max="2999" class="form-control" placeholder="Entrer une annee"/>
+                    </div>
                 </div>
-                <!-- text input -->
-                <div class="form-group col-md-6">
-                    <form:label path="year">Annee</form:label>
-                    <form:input id="year" path="year" type="number" value="2018" min="1950" max="2999" class="form-control" placeholder="Entrer une annee"/>
-                </div>
-            </div>
                 <br>
 
                 <!-- text input -->
@@ -150,7 +151,7 @@
 
             </div>
             <div class="box-footer">
-                <button class="btn btn-lg btn-success pull-right">Ajouter</button>
+                <button class="btn btn-lg btn-success pull-right">Appliquer</button>
             </div>
         </form:form>
 

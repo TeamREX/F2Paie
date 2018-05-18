@@ -16,8 +16,8 @@ public class Fiche_P extends Auditable{
         private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_employee")
-        private Employee employee;
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 
     @Column(name = "month")
         private Integer month;

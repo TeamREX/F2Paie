@@ -44,7 +44,8 @@ public class FichePController {
 
         fiche_pService.addFicheP(fiche_p);
 
-        return "redirect:/ficheP/list";
+
+        return "redirect:/ficheP/list/"+fiche_p.getEmployee().getId();
     }
 
     @RequestMapping("/list")
@@ -56,7 +57,28 @@ public class FichePController {
     @RequestMapping("/list/{employee}")
     public ModelAndView list_ficheByEmployee(@PathVariable(value = "employee") Integer employee){
         ModelAndView modelAndView = new ModelAndView("ficheP_list", "fiches", fiche_pService.findByEmployee_Id(employee));
+        modelAndView.addObject("employee",employeeService.getEmployee(employee)) ;
         return modelAndView;
+    }
+
+    @RequestMapping("/show/{id}")
+    public String list_employee( @PathVariable Integer id, ModelMap model){
+
+        Fiche_P fiche_p =  fiche_pService.getFicheP(id);
+
+        System.out.println(fiche_p);
+
+        model.addAttribute("ficheP",fiche_p);
+        model.addAttribute("employee",fiche_p.getEmployee());
+        return"ficheP_show";
+    }
+
+    @RequestMapping("/remove/{fiche}")
+    public String delete_ficheP(@PathVariable int fiche){
+        int idEmp = fiche_pService.getFicheP(fiche).getEmployee().getId() ;
+            fiche_pService.deleteFicheP(fiche);
+
+        return "redirect:/ficheP/list/"+idEmp;
     }
 
 }

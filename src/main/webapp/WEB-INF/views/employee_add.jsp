@@ -106,7 +106,7 @@
         <!-- text input -->
         <div class="form-group">
             <form:label path="salaire">Salaire</form:label>
-            <form:input id="salary" path="salaire" type="number" class="form-control" placeholder="Enter ..."/>
+            <form:input id="salary" path="salaire" type="number" step="0.001" class="form-control" placeholder="Enter ..."/>
         </div>
         <!-- text input -->
         <div class="form-group">

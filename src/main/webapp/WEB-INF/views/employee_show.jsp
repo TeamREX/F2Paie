@@ -57,7 +57,7 @@
                         <!-- /.col -->
                         <div class="col-sm-4">
                             <div class="description-block">
-                                <h5 class="description-header" id="salaireEmp">-</h5>
+                                <h5 class="description-header" id="salaireEmp"></h5>
                                 <span class="description-text">Salaire</span>
                             </div>
                             <!-- /.description-block -->
@@ -151,7 +151,7 @@
                                 <!-- text input -->
                                 <div class="form-group">
                                     <form:label path="salaire">Salaire</form:label>
-                                    <form:input id="salary" path="salaire" type="number" class="form-control" placeholder="Enter ..."/>
+                                    <form:input id="salary" path="salaire" type="number" step="0.001" class="form-control" placeholder="Enter ..."/>
                                 </div>
                                 <!-- text input -->
                                 <div class="form-group">
@@ -189,15 +189,18 @@
 
                         });
 
+                        setSeparator();
                         getSalary();
 
 
                         function setSeparator() {
                             var salaire = document.getElementById("salaireEmp") ;
-                            var s = ${employee.salaire} ;
+                            var s = "-";
+                           s = ${employee.salaire} ;
 
-                            salaire.innerHTML = s.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); ;
+                            salaire.innerHTML = s.toLocaleString(undefined, {maximumFractionDigits:3}) + ' DTN';
                         }
+
                         function setPostName() {
                             var poste = document.getElementById("poste") ;
                             var poste_name = document.getElementById("poste_name") ;

@@ -56,4 +56,10 @@ public class Fiche_pServiceImp implements Fiche_pService{
         return null;
     }
 
+    @Override
+    public int deleteFicheP(Integer id) {
+        fiche_pRepository.delete(id);
+        return 1;
+    }
+
 }
