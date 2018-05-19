@@ -22,15 +22,16 @@
 
     <div class="box box-primary">
         <div class="box-header with-border">
-            <i class="fa fa-user-plus"></i> <span><h3 class="box-title">Creation fiche de paie pour ${employee.prenom} ${employee.nom}</h3></span>
+            <i class="fa fa-user-plus"></i> <span><h3 class="box-title">Creation fiche de paie pour <b>${employee.prenom} ${employee.nom}</b></h3></span>
             <button type="button" class="btn btn-success pull-right" onclick="location.href='/employee/list';"><i class="fa fa-arrow-left"></i></button>
 
         </div>
         <!-- /.box-header -->
 
-        <form:form role="form" method="POST" action="/ficheP/addFiche" modelAttribute="ficheP">
+        <form:form id="fichePform" role="form" method="POST" action="/ficheP/addFiche" modelAttribute="ficheP">
             <div class="box-body">
                 <form:hidden path="employee" value="${employee.id}"/>
+                <form:hidden path="imSalary" id="imSalary"/>
             <div class="row">
                 <!-- text input -->
                 <div class="form-group col-md-6">
@@ -53,7 +54,7 @@
                 <!-- text input -->
                 <div class="form-group">
                     <form:label path="workDays">Nombre de jours ouvrés/Mois</form:label>
-                    <form:input path="workDays" id="nbr_days" type="number" value="22" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:input path="workDays" id="nbr_days" type="number" value="26" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
@@ -64,7 +65,7 @@
                 <!-- text input -->
                 <div class="form-group">
                     <form:label path="workedDays">Jours travaillés</form:label>
-                    <form:input id="workedDays" path="workedDays" type="number" value="22" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:input id="workedDays" path="workedDays" type="number" value="26" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
@@ -83,17 +84,22 @@
                 </div>
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="primeTransport">Prime Transport (DTN)</form:label>
+                    <form:label path="primePresence">Prime de Presence (DTN)</form:label>
+                    <form:input id="primePresence" path="primePresence" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                </div>
+                <!-- text input -->
+                <div class="form-group">
+                    <form:label path="primeTransport">Prime de Transport (DTN)</form:label>
                     <form:input id="primeTransport" path="primeTransport" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="primeCouffin">Prime Couffin (DTN)</form:label>
+                    <form:label path="primeCouffin">Prime de Couffin (DTN)</form:label>
                     <form:input id="primeCouffin" path="primeCouffin" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="primeRondement">Prime Rondement (DTN)</form:label>
+                    <form:label path="primeRondement">Prime de Rondement (DTN)</form:label>
                     <form:input id="primeRondement" path="primeRondement" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
@@ -217,8 +223,9 @@
             var priceHoure = document.getElementById("priceHoure"); var baseRetenue = document.getElementById("baseRetenue");
             var accompte = document.getElementById("accompte"); var brutSalary = document.getElementById("brutSalary");
             var primeTransport = document.getElementById("primeTransport"); var netSalary = document.getElementById("netSalary");
-            var primeCouffin = document.getElementById("primeCouffin");
+            var primeCouffin = document.getElementById("primeCouffin"); var primePresence = document.getElementById("primePresence");
             var salaire_jour = document.getElementById("salaire_jour");
+            var imSalary = document.getElementById("imSalary");
             var nbr_days = document.getElementById("nbr_days");
 
             var prix_jour = baseSalary.value / nbr_days.value   ;
@@ -230,16 +237,18 @@
             salaire_jour.value = prix_jour ;
 
             var salaire_brut = (baseSalary.value * 1) + (extraDays.value * prix_jour) + (extraHours.value * priceHoure.value)+
-                (primeTransport.value * 1) + (primeCouffin.value * 1) + (primeRondement.value * 1)  ;
+                (primeTransport.value * 1) + (primeCouffin.value * 1) + (primeRondement.value * 1) + (primePresence.value * 1)  ;
 
             var montant_cnss = (salaire_brut * (baseCnss.value * 1) )/100;
             montant_cnss = Math.round(montant_cnss * factor) / factor;
             mntCnss.value = montant_cnss;
 
+            imSalary.value = ((salaire_brut - montant_cnss).toLocaleString('de-DE', {minimumFractionDigits: 3, maximumFractionDigits: 3})).replace(/\./,' ');
+
             var salaire_net = salaire_brut - ( (accompte.value * 1) + (montant_cnss) + (ir.value * 1) + (unworkedDays * prix_jour)  ) ;
 
-            brutSalary.value = salaire_brut.toLocaleString("de-DE", {maximumFractionDigits:3});
-            netSalary.value = salaire_net.toLocaleString("de-DE", {maximumFractionDigits:3}) ;
+            brutSalary.value = (salaire_brut.toLocaleString('de-DE', {minimumFractionDigits: 3, maximumFractionDigits: 3})).replace(/\./,' ');
+            netSalary.value = (salaire_net.toLocaleString('de-DE', {minimumFractionDigits: 3, maximumFractionDigits: 3})).replace(/\./,' ');
 
         }
 

@@ -35,6 +35,15 @@ public class Company extends Auditable{
     @Column(name = "date")
     private String date;
 
+    @Column(name = "cnss")
+    private String cnss;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "email")
+    private String email;
+
     public Company() {
     }
 
@@ -105,8 +114,30 @@ public class Company extends Auditable{
 
     public void setDescription(String description) {
         this.description = description;
+    }
 
+    public String getCnss() {
+        return cnss;
+    }
 
+    public void setCnss(String cnss) {
+        this.cnss = cnss;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

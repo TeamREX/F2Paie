@@ -21,11 +21,17 @@ public class Employee extends Auditable {
     @Column(name = "prenom")
         private String prenom;
 
-    @Column(name = "cin", unique = true)
+    @Column(name = "cin")
         private String cin;
+
+    @Column(name = "phone")
+    private String phone;
 
     @Column(name = "date_naiss")
         private String dateNaiss;
+
+    @Column(name = "date_recrutement")
+    private String dateRecrutement;
 
     @Column(name = "situation")
         private String situation;
@@ -188,6 +194,23 @@ public class Employee extends Auditable {
     public void setCompany(Company company) {
         this.company = company;
     }
+
+    public String getDateRecrutement() {
+        return dateRecrutement;
+    }
+
+    public void setDateRecrutement(String dateRecrutement) {
+        this.dateRecrutement = dateRecrutement;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
 
     @Override
         public String toString() {

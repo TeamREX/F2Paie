@@ -50,12 +50,22 @@
         </div>
         <!-- Date -->
         <div class="form-group">
+            <form:label path="dateRecrutement">Date de recrutement</form:label>
+            <div class="input-group date">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <form:input path="dateRecrutement" type="text" class="form-control pull-right datepicker" />
+            </div>
+        </div>
+        <!-- Date -->
+        <div class="form-group">
             <form:label path="dateNaiss">Date Naissance</form:label>
             <div class="input-group date">
                 <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </div>
-                <form:input path="dateNaiss" type="text" class="form-control pull-right" id="datepicker"/>
+                <form:input path="dateNaiss" type="text" class="form-control pull-right datepicker" />
             </div>
         </div>
         <!-- text input -->
@@ -131,7 +141,7 @@
 
         $(function () {
             //Date picker
-            $('#datepicker').datepicker({
+            $('.datepicker').datepicker({
                 autoclose: true ,format: 'dd/mm/yyyy'
             })
 

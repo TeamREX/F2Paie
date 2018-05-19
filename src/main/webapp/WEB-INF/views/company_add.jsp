@@ -42,8 +42,26 @@
             </div>
             <!-- text input -->
             <div class="form-group">
-                <form:label path="nom">adresse</form:label>
+                <form:label path="adresse">adresse</form:label>
                 <form:input path="adresse" type="text" class="form-control" placeholder="Enter ..."/>
+            </div>
+
+            <!-- text input -->
+            <div class="form-group">
+                <form:label path="cnss">N° CNSS</form:label>
+                <form:input path="cnss" type="text" class="form-control" placeholder="Enter ..."/>
+            </div>
+
+            <!-- text input -->
+            <div class="form-group">
+                <form:label path="phone">N° Téléphone</form:label>
+                <form:input path="phone" type="text" class="form-control" placeholder="+216 ..."/>
+            </div>
+
+            <!-- text input -->
+            <div class="form-group">
+                <form:label path="email">Email</form:label>
+                <form:input path="email" type="email" class="form-control" placeholder="Enter ..."/>
             </div>
             <!-- text input -->
             <div class="form-group">

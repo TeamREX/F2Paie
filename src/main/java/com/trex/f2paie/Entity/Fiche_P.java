@@ -25,6 +25,9 @@ public class Fiche_P extends Auditable{
     @Column(name = "year")
         private Integer year;
 
+    @Column(name = "trimestre")
+    private Integer trimestre;
+
     @Column(name = "base_salary")
         private String baseSalary;
 
@@ -48,6 +51,9 @@ public class Fiche_P extends Auditable{
 
     @Column(name = "accompte")
         private String accompte;
+
+    @Column(name = "prime_presence")
+    private String primePresence;
 
     @Column(name = "prime_transport")
         private String primeTransport;
@@ -78,6 +84,9 @@ public class Fiche_P extends Auditable{
 
     @Column(name = "brut_salary")
     private String brutSalary;
+
+    @Column(name = "im_salary")
+    private String imSalary;
 
         public Fiche_P() {
         }
@@ -261,6 +270,30 @@ public class Fiche_P extends Auditable{
 
     public void setWorkDays(Integer workDays) {
         this.workDays = workDays;
+    }
+
+    public Integer getTrimestre() {
+        return trimestre;
+    }
+
+    public void setTrimestre(Integer trimestre) {
+        this.trimestre = trimestre;
+    }
+
+    public String getPrimePresence() {
+        return primePresence;
+    }
+
+    public void setPrimePresence(String primePresence) {
+        this.primePresence = primePresence;
+    }
+
+    public String getImSalary() {
+        return imSalary;
+    }
+
+    public void setImSalary(String imSalary) {
+        this.imSalary = imSalary;
     }
 
     @Override

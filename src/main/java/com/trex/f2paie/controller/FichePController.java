@@ -42,6 +42,14 @@ public class FichePController {
             return "error";
         }
 
+        switch (fiche_p.getMonth()){
+            case 1 : case 2 : case 3 : fiche_p.setTrimestre(1);break;
+            case 4 : case 5 : case 6 : fiche_p.setTrimestre(2);break;
+            case 7 : case 8 : case 9 : fiche_p.setTrimestre(3);break;
+            case 10 : case 11 : case 12 : fiche_p.setTrimestre(4);break;
+
+        }
+        System.out.println("trimrstre = "+fiche_p.getTrimestre());
         fiche_pService.addFicheP(fiche_p);
 
 
@@ -62,15 +70,22 @@ public class FichePController {
     }
 
     @RequestMapping("/show/{id}")
-    public String list_employee( @PathVariable Integer id, ModelMap model){
+    public String show_ficheP( @PathVariable Integer id, ModelMap model){
 
         Fiche_P fiche_p =  fiche_pService.getFicheP(id);
-
-        System.out.println(fiche_p);
 
         model.addAttribute("ficheP",fiche_p);
         model.addAttribute("employee",fiche_p.getEmployee());
         return"ficheP_show";
+    }
+
+    @RequestMapping("/showModel/{id}")
+    public String showModel( @PathVariable Integer id, ModelMap model){
+
+        Fiche_P fiche_p =  fiche_pService.getFicheP(id);
+
+        model.addAttribute("ficheP",fiche_p);
+        return"fichePModel1";
     }
 
     @RequestMapping("/remove/{fiche}")

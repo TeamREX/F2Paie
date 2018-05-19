@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-15" pageEncoding="ISO-8859-15"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -16,7 +16,7 @@
 
     <div class="box">
         <div class="box-header">
-            <i class="fa fa-group"></i> <span><h3 class="box-title">Liste des Fiche de paies de ${employee.prenom} ${employee.nom}</h3></span>
+            <i class="fa fa-group"></i> <span><h3 class="box-title">Liste des Fiche de paies de <b>${employee.prenom} ${employee.nom}</b></h3></span>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -24,7 +24,7 @@
                 <thead>
                 <tr>
                     <th>Numero</th>
-                    <th>Employé</th>
+                    <th>EmployÃ©</th>
                     <th>Date</th>
                     <th>Montant Net</th>
                     <th>Actions</th>
@@ -42,6 +42,8 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default" onclick="location.href='/ficheP/show/${f.id}';"><i class="fa fa-eye"></i></button>
                                     <button type="button" class="btn btn-danger" onclick="editID(${f.id},'${f.month}/${f.year}')" data-toggle="modal" data-target="#modal-default"><i class="fa fa-remove"></i></button>
+                                    <a href="/ficheP/showModel/${f.id}" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> </a>
+
                                 </div>
                             </td>
                         </tr>
@@ -61,7 +63,7 @@
                     <h4 class="modal-title">Supprimer Fiche de paie</h4>
                 </div>
                 <div class="modal-body">
-                    <p id="modal_txt">Êtes-vous sûr de vouloir supprimer la Fiche de paie </p>
+                    <p id="modal_txt">ÃŠtes-vous sÃ»r de vouloir supprimer la Fiche de paie </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Annuler</button>
@@ -83,7 +85,7 @@
         function editID(id,name)
         {
             document.getElementById("delete_btn").href="/ficheP/remove/"+id;
-            document.getElementById("modal_txt").innerHTML ="Êtes-vous sûr de vouloir supprimer la Fiche de paie du mois de  <b>"+name+"</b>";
+            document.getElementById("modal_txt").innerHTML ="ÃŠtes-vous sÃ»r de vouloir supprimer la Fiche de paie du mois de  <b>"+name+"</b>";
         }
 
         $(function () {

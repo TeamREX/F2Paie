@@ -9,14 +9,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-    <%--
-  Created by IntelliJ IDEA.
-  User: ytalab
-  Date: 28/03/2018
-  Time: 15:02
-  To change this template use File | Settings | File Templates.
---%>
-
     <html>
     <head>
 

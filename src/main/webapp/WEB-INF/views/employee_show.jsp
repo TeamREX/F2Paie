@@ -88,10 +88,15 @@
                                     <form:label path="prenom">Prenom</form:label>
                                     <form:input path="prenom" type="text" class="form-control" placeholder="Enter ..."/>
                                 </div>
-                                <!-- text input -->
+                                <!-- Date -->
                                 <div class="form-group">
-                                    <form:label path="nom">Nom</form:label>
-                                    <form:input path="nom" type="text" class="form-control" placeholder="Enter ..."/>
+                                    <form:label path="dateRecrutement">Date de recrutement</form:label>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <form:input path="dateRecrutement" type="text" class="form-control pull-right datepicker" />
+                                    </div>
                                 </div>
                                 <!-- Date -->
                                 <div class="form-group">
@@ -100,7 +105,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <form:input path="dateNaiss" type="text" class="form-control pull-right" id="datepicker"/>
+                                        <form:input path="dateNaiss" type="text" class="form-control pull-right datepicker" />
                                     </div>
                                 </div>
                                 <!-- text input -->
@@ -183,7 +188,7 @@
 
                         $(function () {
                             //Date picker
-                            $('#datepicker').datepicker({
+                            $('.datepicker').datepicker({
                                 autoclose: true ,format: 'dd/mm/yyyy'
                             })
 
@@ -196,7 +201,7 @@
                             var s = "-";
                            s = ${employee.salaire} ;
 
-                            salaire.innerHTML = s.toLocaleString(undefined, {maximumFractionDigits:3}) + ' DTN';
+                            salaire.innerHTML = s.toLocaleString(undefined, {minimumFractionDigits: 3, maximumFractionDigits: 3}) + ' DTN';
                         }
 
                         function setPostName() {
