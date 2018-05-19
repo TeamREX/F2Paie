@@ -36,92 +36,93 @@
                     <!-- text input -->
                     <div class="form-group col-md-6">
                         <form:label path="month">Mois</form:label>
-                        <form:input id="month" path="month" type="number" value="1" min="1" max="12" class="form-control" placeholder="Entrer un mois"/>
+                        <form:input id="month" path="month" type="number" min="1" max="12" class="form-control" placeholder="Entrer un mois"/>
                     </div>
                     <!-- text input -->
                     <div class="form-group col-md-6">
                         <form:label path="year">Annee</form:label>
-                        <form:input id="year" path="year" type="number" value="2018" min="1950" max="2999" class="form-control" placeholder="Entrer une annee"/>
+                        <form:input id="year" path="year" type="number" min="1950" max="2999" class="form-control" placeholder="Entrer une annee"/>
                     </div>
                 </div>
                 <br>
 
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="baseSalary">Salaire de base</form:label> <small id="refresh" onclick="setBaseSalary()" class="label bg-yellow"><i class="fa fa-refresh"></i> </small>
+                    <form:label path="baseSalary">Salaire de base (DTN)</form:label> <small id="refresh" onclick="setBaseSalary()" class="label bg-yellow"><i class="fa fa-refresh"></i> </small>
                     <form:input id="baseSalary" path="baseSalary" type="number" step="0.001" value="${employee.salaire}" min="0" class="form-control" placeholder="Enter ..." onkeyup="isSalChanged()" onchange="isSalChanged()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
-                    <label>Salaire/Jour</label>
-                    <input id="salaire_jour"  type="text" value="0" class="form-control" placeholder="Enter ..." disabled/>
+                    <form:label path="workDays">Nombre de jours ouvrés/Mois</form:label>
+                    <form:input path="workDays" id="nbr_days" type="number" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
-                    <label >Nombre de jours ouvrés/Mois</label>
-                    <input id="nbr_days" type="number" value="22" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:label path="daySalary" >Salaire/Jour (DTN)</form:label>
+                    <form:input path="daySalary" id="salaire_jour"  type="number" min="0" step="0.001"  class="form-control" placeholder="Enter ..." onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
+
                 <!-- text input -->
                 <div class="form-group">
                     <form:label path="workedDays">Jours travaillés</form:label>
-                    <form:input id="workedDays" path="workedDays" type="number" value="22" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:input id="workedDays" path="workedDays" type="number" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
                     <form:label path="extraDays">Jours feriés travaillés</form:label>
-                    <form:input id="extraDays" path="extraDays" type="number" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:input id="extraDays" path="extraDays" type="number" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
                     <form:label path="extraHours">Heures supplimentaires</form:label>
-                    <form:input id="extraHours" path="extraHours" type="number" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:input id="extraHours" path="extraHours" type="number" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="priceHoure">salaire/Heure</form:label>
-                    <form:input id="priceHoure" path="priceHoure" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:label path="priceHoure">salaire/Heure (DTN)</form:label>
+                    <form:input id="priceHoure" path="priceHoure" type="number" step="0.001" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="primeTransport">Prime Transport</form:label>
-                    <form:input id="primeTransport" path="primeTransport" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:label path="primeTransport">Prime Transport (DTN)</form:label>
+                    <form:input id="primeTransport" path="primeTransport" type="number" step="0.001" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="primeCouffin">Prime Couffin</form:label>
-                    <form:input id="primeCouffin" path="primeCouffin" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:label path="primeCouffin">Prime Couffin (DTN)</form:label>
+                    <form:input id="primeCouffin" path="primeCouffin" type="number" step="0.001" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="primeRondement">Prime Rondement</form:label>
-                    <form:input id="primeRondement" path="primeRondement" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:label path="primeRondement">Prime Rondement (DTN)</form:label>
+                    <form:input id="primeRondement" path="primeRondement" type="number" step="0.001" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="accompte">Accompte</form:label>
-                    <form:input id="accompte" path="accompte" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
-                </div>
-                <!-- text input -->
-                <div class="form-group">
-                    <form:label path="mntCnss">Montant CNSS</form:label>
-                    <form:input id="mntCnss" path="mntCnss" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
-                </div>
-                <!-- text input -->
-                <div class="form-group">
-                    <form:label path="ir">IR</form:label>
-                    <form:input id="ir" path="ir" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:label path="accompte">Accompte (DTN)</form:label>
+                    <form:input id="accompte" path="accompte" type="number" step="0.001" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
 
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="baseCnss">Base Cnss</form:label>
-                    <form:input id="baseCnss" path="baseCnss" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:label path="baseCnss">Base Cnss ( % )</form:label>
+                    <form:input id="baseCnss" path="baseCnss" type="number" step="0.001" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                </div>
+                <!-- text input -->
+                <div class="form-group">
+                    <form:label path="mntCnss">Montant CNSS (DTN)</form:label>
+                    <form:input id="mntCnss" path="mntCnss" type="number" step="0.001" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                </div>
+                <!-- text input -->
+                <div class="form-group">
+                    <form:label path="baseRetenue">Base Revenue</form:label>
+                    <form:input id="baseRetenue" path="baseRetenue" type="number" step="0.1" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
 
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="baseRetenue">Base Retenue</form:label>
-                    <form:input id="baseRetenue" path="baseRetenue" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:label path="ir">IR  (DTN)</form:label>
+                    <form:input id="ir" path="ir" type="number" step="0.001" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
 
                 <!-- Date -->
@@ -138,13 +139,13 @@
                 <!-- *******************************   SALAIRE ******************************************* -->
                 <!-- text input -->
                 <div class="form-group">
-                    <form:label path="brutSalary">Salaire Brut</form:label>
-                    <form:input id="brutSalary" path="brutSalary" type="text" value="0" class="form-control input-lg" placeholder="Enter ..." />
+                    <form:label path="brutSalary">Salaire Brut (DTN)</form:label>
+                    <form:input id="brutSalary" path="brutSalary" type="text" class="form-control input-lg" placeholder="Enter ..." />
                 </div>
                 <!-- text input -->
                 <div class="form-group has-success">
-                    <form:label path="netSalary">Salaire Net</form:label>
-                    <form:input id="netSalary" path="netSalary" type="text" value="0" class="form-control input-lg" placeholder="Enter ..." />
+                    <form:label path="netSalary">Salaire Net (DTN)</form:label>
+                    <form:input id="netSalary" path="netSalary" type="text" class="form-control input-lg" placeholder="Enter ..." />
                 </div>
 
 
@@ -167,7 +168,7 @@
             //Date picker
             $('#datepicker').datepicker({
                 autoclose: true ,format: 'dd/mm/yyyy'
-            }).datepicker("setDate", new Date());
+            });
 
         });
 
@@ -232,7 +233,11 @@
             var salaire_brut = (baseSalary.value * 1) + (extraDays.value * prix_jour) + (extraHours.value * priceHoure.value)+
                 (primeTransport.value * 1) + (primeCouffin.value * 1) + (primeRondement.value * 1)  ;
 
-            var salaire_net = salaire_brut - ( (accompte.value * 1) + (mntCnss.value * 1) + (ir.value * 1) + (unworkedDays * prix_jour)  ) ;
+            var montant_cnss = (salaire_brut * (baseCnss.value * 1) )/100;
+            montant_cnss = Math.round(montant_cnss * factor) / factor;
+            mntCnss.value = montant_cnss;
+
+            var salaire_net = salaire_brut - ( (accompte.value * 1) + (montant_cnss) + (ir.value * 1) + (unworkedDays * prix_jour)  ) ;
 
             brutSalary.value = salaire_brut.toLocaleString("de-DE", {maximumFractionDigits:3});
             netSalary.value = salaire_net.toLocaleString("de-DE", {maximumFractionDigits:3}) ;

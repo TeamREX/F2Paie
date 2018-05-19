@@ -112,35 +112,35 @@
                                 <div class="form-group">
                                     <form:label path="situation">Situation</form:label><br>
                                     <form:select path="situation" class="form-control select2" >
-                                        <form:option value="marie" label="Marié"/>
-                                        <form:option value="celibataire" label="Celibataire"/>
+                                        <form:option value="marie" label="Marié" selected="${employee.situation == 'marie' ? 'selected' : ''}"/>
+                                        <form:option value="celibataire" label="Celibataire" selected="${employee.situation == 'celibataire' ? 'selected' : ''}"/>
                                     </form:select>
                                 </div>
                                 <!-- text input -->
                                 <div class="form-group">
                                     <form:label path="nEnfants">Nbr Enfants</form:label>
-                                    <form:input path="nEnfants" type="number" value="0" min="0" max="99" class="form-control" placeholder="Enter ..."/>
+                                    <form:input path="nEnfants" type="number" min="0" max="99" class="form-control" placeholder="Enter ..."/>
                                 </div>
                                 <!-- select input -->
                                 <div class="form-group boulangerie has-success" >
                                     <form:label path="poste">Poste</form:label>
                                     <form:select path="poste" class="form-control select2" onchange="getSalary();" id="poste" >
-                                        <form:option value="1" label="Administration" selected="selected"/>
-                                        <form:option value="2" label="Passeur de planche"/>
-                                        <form:option value="3" label="Peseur"/>
-                                        <form:option value="4" label="Paitresseur"/>
-                                        <form:option value="5" label="Maitre de pelle"/>
+                                        <form:option value="1" label="Administration" selected="${employee.poste == 1 ? 'selected' : ''}"/>
+                                        <form:option value="2" label="Passeur de planche" selected="${employee.poste == 2 ? 'selected' : ''}"/>
+                                        <form:option value="3" label="Peseur" selected="${employee.poste == 3 ? 'selected' : ''}"/>
+                                        <form:option value="4" label="Paitresseur" selected="${employee.poste == 4 ? 'selected' : ''}"/>
+                                        <form:option value="5" label="Maitre de pelle" selected="${employee.poste == 5 ? 'selected' : ''}"/>
                                     </form:select>
                                 </div>
                                 <!-- text input -->
                                 <div class="form-group boulangerie has-success">
                                     <form:label path="grade">Grade</form:label>
-                                    <form:input path="grade" type="number" value="1" min="1" max="13" class="form-control" placeholder="Enter un nombre entre 1 et 13" id="grade" onkeyup="getSalary();" onchange="getSalary();"/>
+                                    <form:input path="grade" type="number" min="1" max="13" class="form-control" placeholder="Enter un nombre entre 1 et 13" id="grade" onkeyup="getSalary();" onchange="getSalary();"/>
                                 </div>
                                 <!-- text input -->
                                 <div class="form-group boulangerie r_admin has-success" >
                                     <form:label path="r_admin">Categorie admin</form:label>
-                                    <form:input path="r_admin" type="number" value="1" min="1" max="8" class="form-control" placeholder="Enter un nombre entre 1 et 8" id="r_admin" onkeyup="getSalary();" onchange="getSalary();"/>
+                                    <form:input path="r_admin" type="number" min="1" max="8" class="form-control" placeholder="Enter un nombre entre 1 et 8" id="r_admin" onkeyup="getSalary();" onchange="getSalary();"/>
                                 </div>
 
                                 <!-- text input -->
@@ -190,8 +190,6 @@
                         });
 
                         setSeparator();
-                        getSalary();
-
 
                         function setSeparator() {
                             var salaire = document.getElementById("salaireEmp") ;

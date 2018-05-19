@@ -28,6 +28,12 @@ public class Fiche_P extends Auditable{
     @Column(name = "base_salary")
         private String baseSalary;
 
+    @Column(name = "day_salary")
+    private String daySalary;
+
+    @Column(name = "work_days")
+    private Integer workDays;
+
     @Column(name = "worked_days")
         private Integer workedDays;
 
@@ -239,6 +245,22 @@ public class Fiche_P extends Auditable{
 
     public void setBrutSalary(String brutSalary) {
         this.brutSalary = brutSalary;
+    }
+
+    public String getDaySalary() {
+        return daySalary;
+    }
+
+    public void setDaySalary(String daySalary) {
+        this.daySalary = daySalary;
+    }
+
+    public Integer getWorkDays() {
+        return workDays;
+    }
+
+    public void setWorkDays(Integer workDays) {
+        this.workDays = workDays;
     }
 
     @Override
