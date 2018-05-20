@@ -95,6 +95,8 @@
           <element id="library" level="project" name="Maven: org.bouncycastle:bcmail-jdk14:1.38" />
           <element id="library" level="project" name="Maven: net.sourceforge.jexcelapi:jxl:2.6.12" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.14" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-actuator:1.5.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-actuator:1.5.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.14.RELEASE" />
         </element>
       </element>
