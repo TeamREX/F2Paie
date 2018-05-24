@@ -53,8 +53,12 @@ public class Employee extends Auditable {
 
     @Column(name = "cnss")
         private String cnss ;
+
     @Column(name = "salaire")
     private String salaire ;
+
+    @Column(name = "salaire_h")
+    private String salaireH ;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
@@ -211,6 +215,13 @@ public class Employee extends Auditable {
         this.phone = phone;
     }
 
+    public String getSalaireH() {
+        return salaireH;
+    }
+
+    public void setSalaireH(String salaireH) {
+        this.salaireH = salaireH;
+    }
 
     @Override
         public String toString() {

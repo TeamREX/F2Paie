@@ -72,6 +72,7 @@
 
                         <form:form role="form" method="POST" action="/employee/editEmployee" modelAttribute="employee">
                             <form:hidden path="id"/>
+                            <form:hidden id="salaireH" path="salaireH"/>
                             <div class="box-body">
 
                                 <!-- select input -->
@@ -233,9 +234,9 @@
 
 
                                 setPostName();
-                                console.log("c "+company+" p "+poste+" g "+grade+" a "+admin)
                                 $.ajax({url: "/api/getSalary/"+poste+"/"+grade+"/"+admin , success: function(result){
                                     document.getElementById("salary").value = result['salaire'];
+                                    document.getElementById("salaireH").value = result['heure'];
                                 }});
                             }else{
                                 $('.boulangerie').hide() ;

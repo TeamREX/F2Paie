@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class Fiche_pServiceImp implements Fiche_pService{
+
     @Autowired
     Fiche_pRepository fiche_pRepository;
 
@@ -52,6 +53,16 @@ public class Fiche_pServiceImp implements Fiche_pService{
         ArrayList<Fiche_P> fiche_p = new ArrayList<>();
         if (fiche_p.addAll(fiche_pRepository.findByEmployee_IdAndMonthAndYear(employee, month, year)) )
         return fiche_p;
+
+        return null;
+    }
+
+    @Override
+    public List<Fiche_P> findByEmployee_Company_IdAndTrimestre(Integer cmpID, Integer trimestre){
+
+        ArrayList<Fiche_P> fiche_p = new ArrayList<>();
+        if (fiche_p.addAll(fiche_pRepository.findByEmployee_Company_IdAndTrimestre(cmpID, trimestre)) )
+            return fiche_p;
 
         return null;
     }

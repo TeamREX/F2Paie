@@ -80,7 +80,7 @@
                 <!-- text input -->
                 <div class="form-group">
                     <form:label path="priceHoure">salaire/Heure (DTN)</form:label>
-                    <form:input id="priceHoure" path="priceHoure" type="number" step="0.001" value="0" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:input id="priceHoure" path="priceHoure" type="number" step="0.001" value="${employee.salaireH}" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
@@ -111,7 +111,7 @@
                 <!-- text input -->
                 <div class="form-group">
                     <form:label path="baseCnss">Base Cnss ( % )</form:label>
-                    <form:input id="baseCnss" path="baseCnss" type="number" step="0.001" value="6.75" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
+                    <form:input id="baseCnss" path="baseCnss" type="number" step="0.001" value="9.18" min="0" class="form-control" placeholder="Enter ..."  onkeyup="getSalary()" onchange="getSalary()"/>
                 </div>
                 <!-- text input -->
                 <div class="form-group">
