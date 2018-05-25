@@ -9,6 +9,6 @@ public interface Fiche_pRepository extends CrudRepository<Fiche_P, Integer> {
     List<Fiche_P> findByEmployee_Id(Integer employee);
     List<Fiche_P> findByMonthAndYear(Integer month,Integer year);
     List<Fiche_P> findByEmployee_IdAndMonthAndYear(Integer employee,Integer month,Integer year);
-    List<Fiche_P> findByEmployee_Company_IdAndTrimestre(Integer cmpID, Integer trimestre);
+    List<Fiche_P> findByEmployee_Company_IdAndTrimestreAndYear(Integer cmpID, Integer trimestre, Integer year);
 
 }

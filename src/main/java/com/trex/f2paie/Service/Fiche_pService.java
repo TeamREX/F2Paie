@@ -12,8 +12,7 @@ public interface Fiche_pService {
     List<Fiche_P> findByEmployee_Id(Integer employee);
     List<Fiche_P> findByMonthAndYear(Integer month,Integer year);
     List<Fiche_P> findByEmployee_IdAndMonthAndYear(Integer employee,Integer month,Integer year);
-    List<Fiche_P> findByEmployee_Company_IdAndTrimestre(Integer cmpID, Integer trimestre);
-
+    List ficheCNSS(Integer cmpID, Integer trimestre, Integer year);
     int deleteFicheP(Integer id);
 
 

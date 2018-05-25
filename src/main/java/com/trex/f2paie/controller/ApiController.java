@@ -1,11 +1,14 @@
 package com.trex.f2paie.controller;
 
+import com.trex.f2paie.Entity.RowFicheCnss;
 import com.trex.f2paie.Service.EmployeeService;
+import com.trex.f2paie.Service.Fiche_pService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,10 +18,18 @@ public class ApiController {
 
     @Autowired
     EmployeeService employeeService;
+    @Autowired
+    Fiche_pService fiche_pService;
 
     @RequestMapping("/api1")
     public String api1(){
         return "ok test";
+    }
+
+    @RequestMapping("/getCnssFile/{cmpID}/{trimestre}/{year}")
+    public List getFicheCNSS(@PathVariable Integer cmpID, @PathVariable Integer trimestre, @PathVariable Integer year){
+
+        return fiche_pService.ficheCNSS(cmpID, trimestre, year);
     }
 
     @RequestMapping("/getSalary/{poste}/{grade}/{admin}")

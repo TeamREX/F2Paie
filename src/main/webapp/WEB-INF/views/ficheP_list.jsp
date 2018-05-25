@@ -17,6 +17,11 @@
     <div class="box">
         <div class="box-header">
             <i class="fa fa-group"></i> <span><h3 class="box-title">Liste des Fiche de paies de <b>${employee.prenom} ${employee.nom}</b></h3></span>
+            <div class="btn-group pull-right">
+            <button type="button" class="btn btn-success " onclick="location.href='/ficheP/add/${employee.id}';"><i class="fa fa-file"></i></button>
+            <button type="button" class="btn btn-primary " onclick="location.href='/employee/list';"><i class="fa fa-group"></i></button>
+            </div>
+
         </div>
         <!-- /.box-header -->
         <div class="box-body">
