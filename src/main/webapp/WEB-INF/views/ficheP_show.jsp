@@ -23,7 +23,7 @@
     <div class="box box-primary">
         <div class="box-header with-border">
             <i class="fa fa-user-plus"></i> <span><h3 class="box-title">Détails fiche de paie pour <b>${employee.prenom} ${employee.nom}</b></h3></span>
-            <button type="button" class="btn btn-success pull-right" onclick="location.href='/employee/list';"><i class="fa fa-arrow-left"></i></button>
+            <button type="button" class="btn btn-success pull-right" onclick="location.href='/ficheP/list/${employee.id}';"><i class="fa fa-arrow-left"></i></button>
 
         </div>
         <!-- /.box-header -->

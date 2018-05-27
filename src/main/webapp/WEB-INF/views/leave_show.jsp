@@ -66,7 +66,7 @@
 
             </div>
             <div class="box-footer">
-                <button class="btn btn-lg btn-success pull-right">Ajouter</button>
+                <button class="btn btn-lg btn-success pull-right">Appliquer</button>
             </div>
         </form:form>
 
@@ -85,11 +85,11 @@
     <script>
         $(function () {
             //Initialize Select2 Elements
-            $('.select2').select2()
+            $('.select2').select2();
             //Date picker
             $('.datepicker').datepicker({
                 autoclose: true ,format: 'dd/mm/yyyy'
-            })
+            });
             //Flat red color scheme for iCheck
             $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
                 checkboxClass: 'icheckbox_flat-green',

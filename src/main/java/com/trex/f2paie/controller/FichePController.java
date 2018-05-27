@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/ficheP")
@@ -86,6 +88,29 @@ public class FichePController {
 
         model.addAttribute("ficheP",fiche_p);
         return"fichePModel1";
+    }
+
+    @RequestMapping("/createCnssFile/{cmpID}/{trimestre}/{year}")
+    public String createCnssFile( @PathVariable Integer cmpID, @PathVariable Integer trimestre,
+                               @PathVariable Integer year, ModelMap model){
+
+        if(year == 0)
+            year = LocalDate.now().getYear();
+
+        model.addAttribute("ficheCnss",fiche_pService.ficheCNSS(cmpID, trimestre, year));
+        model.addAttribute("year",year);
+        model.addAttribute("trimestre",trimestre);
+
+        return"ficheCNSS_add";
+    }
+
+    @RequestMapping("/getCnssFile/{cmpID}/{trimestre}/{year}")
+    public String getCnssFile( @PathVariable Integer cmpID, @PathVariable Integer trimestre,
+            @PathVariable Integer year, ModelMap model){
+
+        model.addAttribute("ficheCnss",fiche_pService.ficheCNSS(cmpID, trimestre, year));
+
+        return"ficheCNSSModel1";
     }
 
     @RequestMapping("/remove/{fiche}")

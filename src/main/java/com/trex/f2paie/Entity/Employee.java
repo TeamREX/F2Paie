@@ -1,9 +1,11 @@
 package com.trex.f2paie.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ouvrier")
+@Table(name = "employee")
 public class Employee extends Auditable {
 
     /**

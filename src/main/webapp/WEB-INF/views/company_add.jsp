@@ -28,7 +28,7 @@
         <!-- text input -->
         <div class="form-group">
         <form:label path="nom">Nom de la Societé</form:label>
-        <form:input path="nom" type="text" class="form-control" placeholder="Enter ..."/>
+        <form:input path="nom" type="text" class="form-control" placeholder="Enter ..." required="required"/>
         </div>
             <!-- Date -->
             <div class="form-group">
@@ -49,7 +49,7 @@
             <!-- text input -->
             <div class="form-group">
                 <form:label path="cnss">N° CNSS</form:label>
-                <form:input path="cnss" type="text" class="form-control" placeholder="Enter ..."/>
+                <form:input path="cnss" type="text" class="form-control" placeholder="Enter ..." required="required"/>
             </div>
 
             <!-- text input -->
@@ -106,11 +106,11 @@
     <script>
         $(function () {
             //Initialize Select2 Elements
-            $('.select2').select2()
+            $('.select2').select2();
             //Date picker
             $('#datepicker').datepicker({
                 autoclose: true ,format: 'dd/mm/yyyy'
-            })
+            });
             //Flat red color scheme for iCheck
             $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
                 checkboxClass: 'icheckbox_flat-green',

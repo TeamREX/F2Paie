@@ -23,7 +23,7 @@
     <div class="box box-primary">
         <div class="box-header with-border">
             <i class="fa fa-user-plus"></i> <span><h3 class="box-title">Creation fiche de paie pour <b>${employee.prenom} ${employee.nom}</b></h3></span>
-            <button type="button" class="btn btn-success pull-right" onclick="location.href='/employee/list';"><i class="fa fa-arrow-left"></i></button>
+            <button type="button" class="btn btn-success pull-right" onclick="location.href='/ficheP/list/${employee.id}';"><i class="fa fa-arrow-left"></i></button>
 
         </div>
         <!-- /.box-header -->
@@ -175,6 +175,14 @@
                 autoclose: true ,format: 'dd/mm/yyyy'
             }).datepicker("setDate", new Date());
 
+        });
+
+        // prevent forms from auto submitting on all inputs
+     /*   $(document).on("keydown", "input", function(e) {
+            if (e.which==13) e.preventDefault();
+        });*/
+        $(':input').keypress(function() {
+            $(this).next(':input').focus();
         });
 
         setCurrentMY();

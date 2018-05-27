@@ -41,17 +41,17 @@
     <section class="invoice">
         <!-- title row -->
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12 ">
                 <h2 class="page-header">
                     <i class="fa fa-file"></i> BULLETIN DE PAIE
-                    <small class="pull-right">Periode: ${ficheP.month} / ${ficheP.year}</small>
+                    <small class="pull-right well">Periode: ${ficheP.month} / ${ficheP.year}</small>
                 </h2>
             </div>
             <!-- /.col -->
         </div>
         <!-- info row -->
         <div class="row invoice-info">
-            <div class="col-sm-4 invoice-col">
+            <div class="col-sm-12 invoice-col">
 
                 <address>
                     <strong>${ficheP.employee.company.nom}</strong><br>
@@ -69,7 +69,7 @@
         <!-- Table row -->
         <div class="row">
             <div class="col-xs-12 table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered"  style="border: 2px solid black">
                     <thead>
                     <tr>
                         <th>Nom Employé</th>
@@ -97,7 +97,7 @@
         <!-- Table row -->
         <div class="row">
             <div class="col-xs-12 table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered"  style="border: 2px solid black">
                     <thead>
                     <tr>
                         <th class="col-xs-6">Libelle</th>
@@ -202,11 +202,11 @@
         <div class="row">
 
             <!-- /.col -->
-            <div class="col-xs-6 pull-right">
+            <div class="col-sm-6 col-sm-push-6">
                 <p class="lead"></p>
 
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table"  style="border: 2px solid black">
                         <tr>
                             <th style="width:50%">NET A PAYER:</th>
                             <td><b>${ficheP.netSalary} DTN</b></td>
@@ -220,7 +220,7 @@
         <br> <br>
         <!-- /.row -->
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-10 col-xs-push-1">
                 <h2 class="page-header">
                     <small class="pull-right">${ficheP.datePayement}</small>
                 </h2>

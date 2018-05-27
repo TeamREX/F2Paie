@@ -2,27 +2,28 @@ package com.trex.f2paie.Entity;
 
 public class RowFicheCnss {
 
-    private String Employee;
-    private String salImp1;
-    private String salImp2;
-    private String salImp3;
+    private Employee employee;
+    private String salImp1="0,000";
+    private String salImp2="0,000";
+    private String salImp3="0,000";
     private double total;
 
-    public RowFicheCnss(){};
-    public RowFicheCnss(String employee, String salImp1, String salImp2, String salImp3, double total) {
-        Employee = employee;
+    public RowFicheCnss(){}
+    public RowFicheCnss(Employee employee, String salImp1, String salImp2, String salImp3, double total) {
+        this.employee = employee;
         this.salImp1 = salImp1;
         this.salImp2 = salImp2;
         this.salImp3 = salImp3;
         this.total = total;
     }
 
-    public String getEmployee() {
-        return Employee;
+
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployee(String employee) {
-        Employee = employee;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public String getSalImp1() {
@@ -55,5 +56,17 @@ public class RowFicheCnss {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+
+    @Override
+    public String toString() {
+        return "RowFicheCnss{" +
+                "Employee='" + employee + '\'' +
+                ", salImp1='" + salImp1 + '\'' +
+                ", salImp2='" + salImp2 + '\'' +
+                ", salImp3='" + salImp3 + '\'' +
+                ", total=" + total +
+                '}';
     }
 }

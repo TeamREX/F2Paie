@@ -42,12 +42,22 @@
         <!-- text input -->
         <div class="form-group">
             <form:label path="prenom">Prenom</form:label>
-            <form:input path="prenom" type="text" class="form-control" placeholder="Enter ..."/>
+            <form:input path="prenom" type="text" class="form-control" placeholder="Enter ..." required="required"/>
         </div>
         <!-- text input -->
         <div class="form-group">
             <form:label path="nom">Nom</form:label>
-            <form:input path="nom" type="text" class="form-control" placeholder="Enter ..."/>
+            <form:input path="nom" type="text" class="form-control" placeholder="Enter ..." required="required"/>
+        </div>
+        <!-- Date -->
+        <div class="form-group">
+            <form:label path="dateNaiss">Date Naissance</form:label>
+            <div class="input-group date">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <form:input path="dateNaiss" type="text" class="form-control pull-right datepicker"/>
+            </div>
         </div>
         <!-- Date -->
         <div class="form-group">
@@ -57,16 +67,6 @@
                     <i class="fa fa-calendar"></i>
                 </div>
                 <form:input path="dateRecrutement" type="text" class="form-control pull-right datepicker" />
-            </div>
-        </div>
-        <!-- Date -->
-        <div class="form-group">
-            <form:label path="dateNaiss">Date Naissance</form:label>
-            <div class="input-group date">
-                <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                </div>
-                <form:input path="dateNaiss" type="text" class="form-control pull-right datepicker" />
             </div>
         </div>
         <!-- text input -->
@@ -117,12 +117,12 @@
         <!-- text input -->
         <div class="form-group">
             <form:label path="salaire">Salaire</form:label>
-            <form:input id="salary" path="salaire" type="number" step="0.001" class="form-control" placeholder="Enter ..."/>
+            <form:input id="salary" path="salaire" type="number" step="0.001" class="form-control" placeholder="Enter ..." required="required"/>
         </div>
         <!-- text input -->
         <div class="form-group">
             <form:label path="cnss">CNSS</form:label>
-            <form:input path="cnss" type="text" class="form-control" placeholder="Enter ..."/>
+            <form:input path="cnss" type="text" class="form-control" placeholder="Enter ..." required="required"/>
         </div>
 
 
@@ -179,7 +179,7 @@
 
 
                 setPostName();
-                console.log("c "+company+" p "+poste+" g "+grade+" a "+admin)
+                console.log("c "+company+" p "+poste+" g "+grade+" a "+admin);
                 $.ajax({url: "/api/getSalary/"+poste+"/"+grade+"/"+admin , success: function(result){
                     document.getElementById("salary").value = result['salaire'];
                     document.getElementById("salaireH").value = result['heure'];

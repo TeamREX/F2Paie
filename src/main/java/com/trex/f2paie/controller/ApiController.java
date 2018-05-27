@@ -1,5 +1,6 @@
 package com.trex.f2paie.controller;
 
+import com.trex.f2paie.Entity.FicheCnss;
 import com.trex.f2paie.Entity.RowFicheCnss;
 import com.trex.f2paie.Service.EmployeeService;
 import com.trex.f2paie.Service.Fiche_pService;
@@ -24,12 +25,6 @@ public class ApiController {
     @RequestMapping("/api1")
     public String api1(){
         return "ok test";
-    }
-
-    @RequestMapping("/getCnssFile/{cmpID}/{trimestre}/{year}")
-    public List getFicheCNSS(@PathVariable Integer cmpID, @PathVariable Integer trimestre, @PathVariable Integer year){
-
-        return fiche_pService.ficheCNSS(cmpID, trimestre, year);
     }
 
     @RequestMapping("/getSalary/{poste}/{grade}/{admin}")

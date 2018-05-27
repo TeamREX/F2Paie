@@ -1,5 +1,6 @@
 package com.trex.f2paie.Service;
 
+import com.trex.f2paie.Entity.FicheCnss;
 import com.trex.f2paie.Entity.Fiche_P;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public interface Fiche_pService {
     List<Fiche_P> findByEmployee_Id(Integer employee);
     List<Fiche_P> findByMonthAndYear(Integer month,Integer year);
     List<Fiche_P> findByEmployee_IdAndMonthAndYear(Integer employee,Integer month,Integer year);
-    List ficheCNSS(Integer cmpID, Integer trimestre, Integer year);
+    FicheCnss ficheCNSS(Integer cmpID, Integer trimestre, Integer year);
     int deleteFicheP(Integer id);
 
 

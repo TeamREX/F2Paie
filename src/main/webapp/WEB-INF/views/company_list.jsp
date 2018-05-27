@@ -37,6 +37,7 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default" onclick="location.href='/company/show/${cmp.id}';"><i class="fa fa-eye"></i></button>
                                     <button type="button" class="btn btn-danger" onclick="editID(${cmp.id},'${cmp.nom}')" data-toggle="modal" data-target="#modal-default"><i class="fa fa-remove"></i></button>
+                                    <button type="button" class="btn btn-success" onclick="location.href='/ficheP/createCnssFile/${cmp.id}/1/0';"><i class="fa fa-file"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -82,7 +83,7 @@
         }
 
         $(function () {
-            $('#companies').DataTable()
+            $('#companies').DataTable();
             $('#example2').DataTable({
                 'paging'      : true,
                 'lengthChange': false,
