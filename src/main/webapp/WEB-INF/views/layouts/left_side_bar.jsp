@@ -36,7 +36,7 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">Menu</li>
+            <li class="header">Menu ${emp_nbr}</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="/index"><i class="fa fa-home"></i> <span>Home</span></a></li>
             <li class="treeview">
