@@ -7,14 +7,16 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<t:template>
 <h2>Spring Security 4 - Custom login form example</h2>
 <hr />
 <h4>Login Form</h4>
 
-<form action='<spring:url value="/signin"/>' method="post">
+<form action='<spring:url value="/login"/>' method="post">
     <table>
         <tr>
             <td>Username</td>
@@ -34,3 +36,4 @@
     <span style="color:green"><c:out value="${sessionScope.message}"/></span>
     <c:remove var="message" scope="session" />
 </c:if>
+</t:template>

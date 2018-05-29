@@ -29,4 +29,14 @@ public class MainController {
         return"index";
     }
 
+    @RequestMapping("/login")
+    public String login(ModelMap modelMap){
+        // Get authenticated user name from SecurityContext
+        SecurityContext context = SecurityContextHolder.getContext();
+        modelMap.addAttribute("message", "You are logged in as "
+                + context.getAuthentication().getName());
+        return"login_company";
+    }
+
+
 }
