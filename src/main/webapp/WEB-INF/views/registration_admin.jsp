@@ -1,10 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 30/05/2018
-  Time: 14:46
+  Date: 31/05/2018
+  Time: 11:11
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
@@ -21,7 +22,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <form:form action='/registration/USER' modelAttribute="user" method="post" class="form-horizontal" role="form">
+                <form:form action='/registration/ADMIN' modelAttribute="user" method="post" class="form-horizontal" role="form">
                     <h2>Registration Form</h2>
                     <div class="form-group">
                         <div class="col-sm-9">
@@ -65,3 +66,4 @@
 
 
 </t:template>
+
