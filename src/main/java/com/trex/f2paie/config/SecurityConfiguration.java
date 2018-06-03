@@ -2,6 +2,7 @@ package com.trex.f2paie.config;
 
 import javax.sql.DataSource;
 
+import com.trex.f2paie.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    UserService userService;
 
     @Autowired
     private DataSource dataSource;
@@ -47,26 +50,30 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.
                 authorizeRequests()
-                .antMatchers("/").permitAll()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/registration").permitAll()
+                .antMatchers("/user/**").hasAuthority("ADMIN").anyRequest().authenticated()
+                .antMatchers("/company/add").hasAuthority("ADMIN").anyRequest().authenticated()
                 .antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
                 .loginPage("/login").failureUrl("/login?error=true")
                 .defaultSuccessUrl("/index")
                 .usernameParameter("email")
                 .passwordParameter("password")
+                .successHandler((request, response, authentication) -> {
+                    request.getSession().setAttribute("user", userService.findUserByEmail(authentication.getName()));
+                    response.sendRedirect("/");
+                })
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login").and().exceptionHandling()
-                .accessDeniedPage("/access-denied");
+                .accessDeniedPage("/index");
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/template/**", "/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/img/**");
+                .antMatchers("/template/**","/favicon.ico", "/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/img/**");
     }
 
 }

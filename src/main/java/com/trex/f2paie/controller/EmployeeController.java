@@ -1,5 +1,6 @@
 package com.trex.f2paie.controller;
 
+import com.trex.f2paie.Entity.Company;
 import com.trex.f2paie.Entity.Employee;
 import com.trex.f2paie.Service.CompanyService;
 import com.trex.f2paie.Service.EmployeeService;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.time.Period;
@@ -51,12 +53,16 @@ public class EmployeeController {
     }
 
     @RequestMapping("/list")
-    public String list_employee( ModelMap model){
+    public String list_employee( ModelMap model, HttpServletRequest request){
         List<String> list1 = new ArrayList<String>();
         List<String> list2 = new ArrayList<String>();
         Collections.copy(list1, list2);
+        Company company = (Company) request.getSession().getAttribute("company");
+        if (company == null){
+            return"redirect:/";
+        }
 
-        ArrayList<Employee> employees = (ArrayList<Employee>) employeeService.getAllEmployees();
+        ArrayList<Employee> employees = (ArrayList<Employee>) employeeService.getEmployeesByCompany(company.getId());
 
         System.out.println("emp : "+employees+" number : "+employees.size());
 

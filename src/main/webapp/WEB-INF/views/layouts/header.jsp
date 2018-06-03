@@ -1,6 +1,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/security/tags"
-           prefix="security"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- Main Header -->
 <header class="main-header">
 
@@ -55,7 +55,9 @@
                         <!-- The user image in the navbar-->
                         <img src="/template/dist/img/avatar5.png" class="user-image" alt="User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                        <span class="hidden-xs">Adel Ben Taleb</span>
+                        <span class="hidden-xs">
+                            <c:out value="${sessionScope.user.name} ${sessionScope.user.lastName}"/>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
@@ -63,32 +65,16 @@
                             <img src="/template/dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                             <p>
-                                Adel Ben Taleb - BTGroup Founder
-                                <small>Member since Nov. 2000</small>
+                                BTGroup
+                                <small><security:authentication property="principal.username" /></small>
+                                <small><security:authentication property="principal.authorities" /></small>
                             </p>
                         </li>
-                        <!-- Menu Body -->
-                        <li class="user-body">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Followers</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Sales</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Friends</a>
-                                </div>
-                            </div>
-                            <!-- /.row -->
-                        </li>
+
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                            </div>
                             <div class="pull-right">
-                                <a href='<spring:url value="/logout"/>' class="btn btn-default btn-flat">Sign out</a>
+                                <a href='<spring:url value="/logout"/>' class="btn btn-danger btn-flat">Deconnexion</a>
                             </div>
                         </li>
                     </ul>

@@ -8,6 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-15" pageEncoding="ISO-8859-15"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 <!-- iCheck for checkboxes and radio inputs -->
 <link rel="stylesheet" href="/template/plugins/iCheck/all.css">
 <!-- Select2 -->
@@ -122,6 +123,13 @@
                     <form:label path="mf">Matricule Fiscal</form:label>
                     <form:input path="mf" type="text" class="form-control" placeholder="Enter ..."/>
                 </div>
+                <!-- password input -->
+                <security:authorize access="hasAuthority('ADMIN')">
+                <div class="form-group has-warning">
+                    <form:label path="password">Mot de passe</form:label>
+                    <form:input path="password" type="password" class="form-control" placeholder="Enter Password"/>
+                </div>
+                </security:authorize>
                 <!-- text input -->
                 <div class="form-group">
                     <form:label path="description">Description</form:label>
@@ -131,7 +139,7 @@
 
             </div>
             <div class="box-footer">
-                <button type="submit" class="btn btn-lg btn-success pull-right">Appliquer</button>
+                <button class="btn btn-lg btn-success pull-right">Appliquer</button>
             </div>
         </form:form>
     </div>

@@ -209,6 +209,22 @@
                            s = ${employee.salaire} ;
 
                             salaire.innerHTML = s.toLocaleString(undefined, {minimumFractionDigits: 3, maximumFractionDigits: 3}) + ' DTN';
+                            var comp = document.getElementById("company");
+                            var company = comp.options[comp.selectedIndex].innerHTML.toLowerCase() ;
+
+                            if (company.includes("boulangerie")){
+                                $('.boulangerie').show() ;
+                                var poste = document.getElementById("poste").value ;
+                                if(poste == 1){
+                                    $('.r_admin').show() ;
+                                }
+                                else{
+                                    $('.r_admin').hide() ;
+                                }
+
+                            }else{
+                                $('.boulangerie').hide() ;
+                            }
                         }
 
                         function setPostName() {

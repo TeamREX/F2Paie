@@ -79,6 +79,11 @@
                 <form:input path="mf" type="text" class="form-control" placeholder="Enter ..."/>
             </div>
             <!-- text input -->
+            <div class="form-group has-warning">
+                <form:label path="password">Mot de passe</form:label>
+                <form:input path="password" type="password" class="form-control" placeholder="Enter Password" required="required"/>
+            </div>
+            <!-- text input -->
             <div class="form-group">
                 <form:label path="description">Description</form:label>
                 <form:textarea path="description" rows="5"  class="form-control" placeholder="Enter ..."/>

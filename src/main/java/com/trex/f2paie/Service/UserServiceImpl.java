@@ -1,7 +1,9 @@
 package com.trex.f2paie.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import com.trex.f2paie.Entity.Role;
 import com.trex.f2paie.Entity.User;
@@ -27,11 +29,37 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public User findUser(Integer id) {
+        return userRepository.findOne(id);
+    }
+
+    @Override
+    public void remove(Integer id) {
+        userRepository.delete(id);
+    }
+
+    @Override
+    public List<User> findUsers() {
+        ArrayList<User> users = new ArrayList<>();
+        userRepository.findAll().forEach(users::add);
+        return users;
+    }
+
+    @Override
     public void saveUser(User user, String role) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
         Role userRole = roleRepository.findByRole(role);
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        userRepository.save(user);
+
+        System.out.println("User added");
+    }
+
+    @Override
+    public void saveUser(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setActive(1);
         userRepository.save(user);
 
         System.out.println("User added");

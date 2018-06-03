@@ -49,6 +49,13 @@ public class EmployeeServiceImp implements EmployeeService {
     }
 
     @Override
+    public List<Employee> getEmployeesByCompany(Integer company) {
+        ArrayList<Employee> employees = new ArrayList<>();
+        employeeRepository.findByCompany_Id(company).forEach(employees::add);
+        return employees;
+    }
+
+    @Override
     public int removeEmployee(Integer empID) {
         employeeRepository.delete(empID);
             return 1;

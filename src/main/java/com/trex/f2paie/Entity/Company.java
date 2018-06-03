@@ -46,6 +46,9 @@ public class Company extends Auditable{
     @Column(name = "email")
     private String email;
 
+    @Column(name = "password")
+    private String password;
+
     public Company() {
     }
 
@@ -140,6 +143,14 @@ public class Company extends Auditable{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

@@ -11,18 +11,27 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!-- Select2 -->
+<link rel="stylesheet" href="/template/bower_components/select2/dist/css/select2.min.css">
 
 <t:template>
-
-    <form action='<spring:url value="/"/>' method="get">
-        <button class="btn btn-md btn-warning btn-block" type="Submit">Login Page</button>
-    </form>
 
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <form:form action='/registration/USER' modelAttribute="user" method="post" class="form-horizontal" role="form">
-                    <h2>Registration Form</h2>
+                <form:form action='/user/addUser' modelAttribute="user" method="post">
+                    <h2>Ajout d'un utilisateur</h2>
+
+                    <!-- select input -->
+                    <div class="form-group">
+                        <form:label path="roles">Role</form:label>
+                        <form:select path="roles" class="form-control select2" >
+                            <form:option value="1" label="Administrateur"/>
+                            <form:option value="2" label="Utilisateur"/>
+                        </form:select>
+
+                    </div>
+
                     <div class="form-group">
                         <div class="col-sm-9">
                             <label >Prenom</label>
@@ -63,5 +72,6 @@
         </div>
     </div>
 
-
+    <!-- Select2 -->
+    <script src="/template/bower_components/select2/dist/js/select2.full.min.js"></script>
 </t:template>

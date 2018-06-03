@@ -12,12 +12,16 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <t:template>
-
+<br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="box box-primary">
+                    <div class="box-body">
     <form action='<spring:url value="/registration"/>' >
-        <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Registration Page</button>
+        <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Registration Page </button>
     </form>
 
-    <div class="container">
 
 
 <form action='<spring:url value="/login"/>' method="post"class="form-signin">
@@ -29,13 +33,17 @@
            id="password" name="password" class="form-control" /> <br />
     <c:if test="${not empty param.error }">
     <div align="center" >
-        <p style="font-size: 20px; color: #FF1C19;">Email or Password invalid, please verify</p>
+        <p style="font-size: 20px; color: #ff4534;">Email or Password invalid, please verify</p>
     </div>
     </c:if>
     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" >Login</button>
 
 </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-<br/>
+
 
 </t:template>
